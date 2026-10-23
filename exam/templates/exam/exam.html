@@ -1,0 +1,177 @@
+{% extends "exam/base.html" %}
+{% block title %}Assessment{% endblock %}
+{% block content %}
+<div class="exam-bar">
+  <div><b>Answered:</b> <span id="answered">{{ answered }}</span>/{{ total }}
+       <span id="saved" class="muted"></span></div>
+  <div class="tabs">
+    {% for s in sections %}<button type="button" class="tab {% if forloop.first %}active{% endif %}" data-tab="{{ s.key }}" tabindex="-1" style="pointer-events:none;cursor:default">{{ forloop.counter }}. {{ s.label }} ({{ s.count }})</button>{% endfor %}
+  </div>
+  <div>{% if remaining != None %}<b>Time left:</b> <span id="timer" class="timer">--:--</span>{% endif %}</div>
+</div>
+
+<form id="examForm" method="post" action="{% url 'submit_exam' attempt.pk %}">{% csrf_token %}
+{% for s in sections %}
+  <section class="skill {% if not forloop.first %}hidden{% endif %}" id="skill-{{ s.key }}">
+    {% for lvl in s.levels %}
+      <h2 class="level">{{ s.label }} - {{ lvl.label }}</h2>
+      {% for it in lvl.items %}
+      <div class="q card" id="q{{ it.answer.position }}">
+        <p class="qtext"><b>Q{{ it.answer.position }}.</b> {{ it.question.prompt }}</p>
+        {% for o in it.options %}
+          <label class="opt"><input type="radio" name="a{{ it.answer.pk }}" value="{{ o.value }}"
+            data-aid="{{ it.answer.pk }}" {% if it.answer.selected == o.value %}checked{% endif %}>
+            <span><b>{{ o.label }})</b> {{ o.text }}</span></label>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    {% endfor %}
+    <div class="submit-row">
+      {% if forloop.last %}
+        <button class="btn" type="submit" id="submitBtn">Submit exam</button>
+      {% else %}
+        <button class="btn nextBtn" type="button">Next{% if forloop.counter == 1 %}: Python{% endif %} &rarr;</button>
+      {% endif %}
+    </div>
+  </section>
+{% endfor %}
+</form>
+<div id="warnModal" class="hidden" style="position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9999;display:none;align-items:center;justify-content:center">
+  <div style="background:#fff;max-width:440px;padding:28px;border-radius:12px;text-align:center">
+    <h2 style="color:#c0392b;margin-top:0">&#9888; Warning</h2>
+    <p id="warnMsg"></p>
+    <button type="button" class="btn" id="warnOk">OK, I understand</button>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+  var saveUrl = "{% url 'save_answer' attempt.pk %}";
+  var csrf = document.querySelector("[name=csrfmiddlewaretoken]").value;
+  var form = document.getElementById("examForm");
+  var total = {{ total }};
+  var remaining = {% if remaining != None %}{{ remaining }}{% else %}null{% endif %};
+  var submitting = false, busy = false, lastHit = 0;
+
+  // ---- sequential sections: SQL first, then Next -> Python, Submit only on the last section
+  var sectionEls = Array.prototype.slice.call(document.querySelectorAll(".skill"));
+  var tabEls = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+  var stageKey = "ita_stage_{{ attempt.pk }}";
+  var stage = 0;
+  try { stage = parseInt(sessionStorage.getItem(stageKey) || "0", 10) || 0; } catch (e) {}
+  if (stage < 0 || stage >= sectionEls.length) stage = 0;
+
+  function showStage(i) {
+    stage = i;
+    sectionEls.forEach(function (el, idx) { el.classList.toggle("hidden", idx !== i); });
+    tabEls.forEach(function (t, idx) { t.classList.toggle("active", idx === i); });
+    try { sessionStorage.setItem(stageKey, String(i)); } catch (e) {}
+    window.scrollTo(0, 0);
+  }
+  showStage(stage);
+
+  function unansweredIn(section) {
+    var ids = {}, done = {};
+    section.querySelectorAll("input[type=radio]").forEach(function (r) {
+      ids[r.dataset.aid] = true;
+      if (r.checked) done[r.dataset.aid] = true;
+    });
+    return Object.keys(ids).length - Object.keys(done).length;
+  }
+
+  document.querySelectorAll(".nextBtn").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var left = unansweredIn(sectionEls[stage]);
+      var msg = left > 0
+        ? "You have " + left + " unanswered question(s) in this section. Go to the next section anyway? You cannot come back."
+        : "Go to the next section? You cannot come back to this section.";
+      busy = true;
+      var okc = confirm(msg);
+      lastHit = Date.now(); busy = false;
+      if (okc && stage < sectionEls.length - 1) showStage(stage + 1);
+    });
+  });
+
+  document.querySelectorAll("input[type=radio]").forEach(function (r) {
+    r.addEventListener("change", function () {
+      var body = new URLSearchParams({choice: r.value, aid: r.dataset.aid, csrfmiddlewaretoken: csrf});
+      var s = document.getElementById("saved");
+      s.textContent = "saving...";
+      fetch(saveUrl, {method: "POST", body: body, credentials: "same-origin"})
+        .then(function (res) { return res.json(); })
+        .then(function (d) {
+          if (d.ok) { document.getElementById("answered").textContent = d.answered; s.textContent = "saved"; }
+          else { s.textContent = "not saved"; }
+        }).catch(function () { s.textContent = "offline - answer not saved"; });
+    });
+  });
+
+  function answeredCount() {
+    return new Set(Array.from(document.querySelectorAll("input[type=radio]:checked"))
+      .map(function (r) { return r.dataset.aid; })).size;
+  }
+
+  form.addEventListener("submit", function (e) {
+    if (!submitting) {
+      var left = total - answeredCount();
+      var msg = left > 0 ? "You have " + left + " unanswered question(s). Submit anyway?"
+                         : "Submit your assessment now? You cannot change answers afterwards.";
+      busy = true;
+      var okc = confirm(msg);
+      lastHit = Date.now(); busy = false;
+      if (!okc) { e.preventDefault(); return; }
+    }
+    submitting = true;
+  });
+
+  // ---- tab / window switch detection: 1st time warning, 2nd time auto submit
+  var violationUrl = "{% url 'tab_violation' attempt.pk %}";
+  var modal = document.getElementById("warnModal");
+  function violation() {
+    var now = Date.now();
+    if (submitting || busy || now - lastHit < 1500) return;   // blur + visibilitychange = count once
+    lastHit = now; busy = true;
+    fetch(violationUrl, {method: "POST", body: new URLSearchParams({csrfmiddlewaretoken: csrf}),
+                         credentials: "same-origin"})
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (d.action === "submit" || d.action === "submitted") {
+          submitting = true;
+          alert("You left the exam tab again. Your exam has been submitted automatically.");
+          window.location.href = d.redirect;
+        } else if (d.action === "warn") {
+          document.getElementById("warnMsg").textContent =
+            "You switched away from the exam tab. This is warning 1 of 1. " +
+            "If you leave the exam tab once more, your exam will be SUBMITTED automatically.";
+          modal.style.display = "flex";
+        }
+      })
+      .catch(function () {})
+      .then(function () { busy = false; lastHit = Date.now(); });
+  }
+  document.getElementById("warnOk").addEventListener("click", function () {
+    modal.style.display = "none"; lastHit = Date.now();
+  });
+  document.addEventListener("visibilitychange", function () { if (document.hidden) violation(); });
+  window.addEventListener("blur", function () { if (!submitting) violation(); });
+
+  window.addEventListener("beforeunload", function (e) {
+    if (!submitting) { e.preventDefault(); e.returnValue = ""; }
+  });
+
+  if (remaining !== null) {
+    var el = document.getElementById("timer");
+    (function tick() {
+      var m = Math.floor(remaining / 60), s = remaining % 60;
+      el.textContent = (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+      if (remaining <= 300) el.classList.add("warn");
+      if (remaining <= 0) { submitting = true; form.submit(); return; }
+      remaining -= 1;
+      setTimeout(tick, 1000);
+    })();
+  }
+})();
+</script>
+{% endblock %}

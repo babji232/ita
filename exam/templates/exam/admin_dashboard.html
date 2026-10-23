@@ -1,0 +1,28 @@
+{% extends "exam/base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<h1>Admin Dashboard</h1>
+<section class="stats">
+  <div class="stat"><b>{{ registered }}</b><span>Registered candidates</span></div>
+  <div class="stat"><b>{{ completed }}</b><span>Completed assessments</span></div>
+  <div class="stat pass"><b>{{ passed }}</b><span>Pass</span></div>
+  <div class="stat fail"><b>{{ failed }}</b><span>Fail</span></div>
+  <div class="stat"><b>{{ pass_pct }}%</b><span>Pass percentage</span></div>
+</section>
+<div class="grid2">
+  <div class="card"><h2>Quick actions</h2>
+    <p><a class="btn" href="{% url 'admin_import' %}">Add files (import questions)</a>
+       <a class="btn secondary" href="{% url 'admin_candidates' %}">Student roll number list</a>
+       <a class="btn secondary" href="{% url 'admin_results' %}">Student exam data</a></p>
+    <p class="muted">In progress: {{ in_progress }} | Active questions: {{ bank }} |
+       Undelivered reports: <a href="{% url 'admin_reports' %}">{{ failed_reports }}</a></p>
+  </div>
+  <div class="card"><h2>Latest submissions</h2>
+    <table><tbody>{% for a in recent %}
+      <tr><td><a href="{% url 'admin_attempt' a.pk %}">{{ a.student.name }}</a></td>
+          <td>{{ a.total_score }}/{{ a.total_max }}</td>
+          <td><span class="badge {{ a.result|lower }}">{{ a.result }}</span></td></tr>
+    {% empty %}<tr><td class="muted">No submissions yet.</td></tr>{% endfor %}</tbody></table>
+  </div>
+</div>
+{% endblock %}

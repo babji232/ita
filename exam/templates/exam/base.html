@@ -1,0 +1,85 @@
+{% load static %}
+<link rel="manifest" href="{% static 'manifest.json' %}">
+
+<meta name="theme-color" content="#000000">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}ITA Associates Assessment{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'exam/style.css' %}">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="{% url 'home' %}"><img src="{% static 'images/ITA_Associates.jpeg' %}" alt="ITA Associates" class="brand-logo" style="width:55px;height:55px;object-fit:contain;vertical-align:middle;margin-right:10px;"></a>
+    {% if not user.is_authenticated or not user.is_staff %}
+      <nav>
+      {% if user.is_authenticated %}
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'student_dashboard' %}">My Dashboard</a>
+      {% else %}
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'register' %}">Student Register</a>
+        <a href="{% url 'student_login' %}">Student Login</a>
+        <a class="btn-nav" href="{% url 'admin_login' %}">Admin Login</a>
+      {% endif %}
+      {% if user.is_authenticated %}
+        <form method="post" action="{% url 'logout' %}" class="inline">{% csrf_token %}
+          <button class="linklike" type="submit">Logout ({{ user.first_name|default:user.email }})</button>
+        </form>
+      {% endif %}
+      </nav>
+    {% endif %}
+  </div>
+</header>
+
+{% if user.is_authenticated and user.is_staff %}
+  <div class="admin-layout">
+    <aside class="admin-sidebar" aria-label="Admin navigation">
+      <p class="sidebar-label">ADMIN MENU</p>
+      <nav class="admin-sidebar-nav">
+        <a class="{% if request.resolver_match.url_name == 'admin_dashboard' %}active{% endif %}" href="{% url 'admin_dashboard' %}"><span aria-hidden="true">▦</span> Dashboard</a>
+        <a class="{% if request.resolver_match.url_name == 'admin_candidates' or request.resolver_match.url_name == 'admin_candidate_edit' %}active{% endif %}" href="{% url 'admin_candidates' %}"><span aria-hidden="true">♙</span> Candidates</a>
+        <a class="{% if request.resolver_match.url_name == 'admin_results' or request.resolver_match.url_name == 'admin_attempt' or request.resolver_match.url_name == 'export_results' %}active{% endif %}" href="{% url 'admin_results' %}"><span aria-hidden="true">▤</span> Results</a>
+        <a class="{% if request.resolver_match.url_name == 'admin_questions' or request.resolver_match.url_name == 'admin_question_new' or request.resolver_match.url_name == 'admin_question_edit' or request.resolver_match.url_name == 'admin_import' or request.resolver_match.url_name == 'import_template' %}active{% endif %}" href="{% url 'admin_questions' %}"><span aria-hidden="true">☷</span> Questions</a>
+        <a class="{% if request.resolver_match.url_name == 'admin_reports' or request.resolver_match.url_name == 'admin_report_retry' %}active{% endif %}" href="{% url 'admin_reports' %}"><span aria-hidden="true">✉</span> Reports</a>
+        <a class="{% if request.resolver_match.url_name == 'admin_settings' %}active{% endif %}" href="{% url 'admin_settings' %}"><span aria-hidden="true">⚙</span> Settings</a>
+        <a class="{% if request.resolver_match.url_name == 'admin_users' or request.resolver_match.url_name == 'admin_user_edit' %}active{% endif %}" href="{% url 'admin_users' %}"><span aria-hidden="true">✚</span> Add Admin</a>
+        <form method="post" action="{% url 'logout' %}" class="sidebar-logout">{% csrf_token %}
+        <button type="submit"><span aria-hidden="true">↪</span> Logout ({{ user.first_name|default:user.email }})</button>
+        </form>
+      </nav>
+      <div class="sidebar-profile">
+        <span class="profile-avatar" aria-hidden="true">{{ user.first_name|default:user.email|slice:":1"|upper }}</span>
+        <span><b>{{ user.first_name|default:"Administrator" }}</b><small>Administrator</small></span>
+      </div>
+    </aside>
+{% endif %}
+<main class="{% if user.is_authenticated and user.is_staff %}admin-main{% else %}container{% endif %}">
+  {% for m in messages %}<div class="alert {{ m.tags }}">{{ m }}</div>{% endfor %}
+  {% block content %}{% endblock %}
+</main>
+{% if user.is_authenticated and user.is_staff %}
+  </div>
+{% endif %}
+
+<footer class="site-footer"><div class="container">
+  ITA Associates | Data Engineering Candidate Assessment Platform
+</div></footer>
+{% block scripts %}{% endblock %}
+
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register(
+        "{% static 'service-worker.js' %}"
+      );
+    });
+  }
+</script>
+</body>
+</html>

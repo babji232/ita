@@ -1,0 +1,16 @@
+{% extends "exam/base.html" %}
+{% block title %}Email reports{% endblock %}
+{% block content %}
+<h1>Email report log</h1>
+<div class="card"><table>
+  <thead><tr><th>ID</th><th>Attempt</th><th>Candidate</th><th>Recipient</th><th>Status</th><th>Retries</th><th>Sent</th><th>Error</th><th></th></tr></thead>
+  <tbody>{% for r in page %}
+    <tr><td>{{ r.pk }}</td><td><a href="{% url 'admin_attempt' r.attempt.pk %}">#{{ r.attempt.pk }}</a></td>
+      <td>{{ r.attempt.student.name }}</td><td>{{ r.recipient }}</td>
+      <td><span class="badge {% if r.delivery_status == 'sent' %}pass{% else %}fail{% endif %}">{{ r.delivery_status }}</span></td>
+      <td>{{ r.retries }}</td><td>{{ r.sent_at|date:"d M H:i"|default:"-" }}</td><td>{{ r.error|truncatechars:60 }}</td>
+      <td>{% if r.delivery_status != 'sent' %}<form method="post" action="{% url 'admin_report_retry' r.pk %}" class="inline">{% csrf_token %}<button class="linklike">Retry</button></form>{% endif %}</td></tr>
+  {% empty %}<tr><td colspan="9" class="muted">No reports yet.</td></tr>{% endfor %}</tbody>
+</table></div>
+{% include "exam/_pager.html" %}
+{% endblock %}

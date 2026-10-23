@@ -1,0 +1,27 @@
+{% extends "exam/base.html" %}
+{% block title %}Student Register{% endblock %}
+{% block content %}
+<div class="card narrow">
+  {% if otp_stage %}
+  <h1>Verify your email</h1>
+  <p>We sent a 6-digit code to <b>{{ email }}</b>. Enter it below to finish registration.</p>
+  <form method="post" novalidate>{% csrf_token %}
+    <div class="field">
+      <label for="id_code">OTP</label>
+      <input type="text" name="code" id="id_code" maxlength="6" inputmode="numeric"
+             autocomplete="one-time-code" placeholder="Enter 6-digit code" autofocus>
+      {% if code_error %}<div class="err">{{ code_error }}</div>{% endif %}
+    </div>
+    <button class="btn" type="submit" name="otp_action" value="verify">Verify &amp; Continue</button>
+    <button class="linklike" type="submit" name="otp_action" value="resend">Resend code</button>
+  </form>
+  {% else %}
+  <h1>Student Registration</h1>
+  <form method="post" novalidate>{% csrf_token %}
+    {% include "exam/_form.html" %}
+    <button class="btn" type="submit">Register</button>
+  </form>
+  <p class="muted">Already registered? <a href="{% url 'student_login' %}">Student login</a></p>
+  {% endif %}
+</div>
+{% endblock %}

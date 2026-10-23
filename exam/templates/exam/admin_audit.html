@@ -1,0 +1,11 @@
+{% extends "exam/base.html" %}
+{% block title %}Audit trail{% endblock %}
+{% block content %}
+<h1>Audit trail</h1>
+<div class="card"><table>
+  <thead><tr><th>Time</th><th>User</th><th>Action</th><th>Details</th></tr></thead>
+  <tbody>{% for a in page %}<tr><td>{{ a.created_at|date:"d M Y H:i" }}</td><td>{{ a.actor.email|default:"-" }}</td>
+    <td>{{ a.action }}</td><td>{{ a.details|truncatechars:100 }}</td></tr>{% endfor %}</tbody>
+</table></div>
+{% include "exam/_pager.html" %}
+{% endblock %}

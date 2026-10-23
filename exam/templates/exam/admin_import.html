@@ -1,0 +1,14 @@
+{% extends "exam/base.html" %}
+{% block title %}Import questions{% endblock %}
+{% block content %}
+<div class="card narrow wide"><h1>Add files - import questions</h1>
+<p>Upload a CSV with columns: <code>skill, difficulty, topic, prompt, option_a, option_b, option_c, option_d, answer_key, explanation, marks, active</code>.
+ Skill = sql / python. Difficulty = easy / intermediate / advanced. Duplicates are skipped.</p>
+<p><a href="{% url 'import_template' %}">Download CSV template</a></p>
+<form method="post" enctype="multipart/form-data" novalidate>{% csrf_token %}{% include "exam/_form.html" %}
+  <button class="btn" type="submit">Import</button></form>
+{% if info %}
+  <div class="alert success">Created {{ info.created }}, skipped duplicates {{ info.skipped }}, errors {{ info.n_errors }}.</div>
+  {% if info.errors %}<ul>{% for e in info.errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+{% endif %}</div>
+{% endblock %}

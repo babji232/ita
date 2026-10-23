@@ -1,0 +1,21 @@
+{% extends "exam/base.html" %}
+{% block title %}{% if role == 'admin' %}Admin{% else %}Student{% endif %} Login{% endblock %}
+{% block content %}
+<div class="card narrow">
+  <h1>{% if role == 'admin' %}Admin Login{% else %}Student Login{% endif %}</h1>
+  {% if role == 'student' %}
+  <form method="post" novalidate>{% csrf_token %}
+    {% include "exam/_form.html" %}
+    <button class="btn" type="submit">Login</button>
+  </form>
+  <p class="muted">Note: each registered email can be used to log in only once.</p>
+  <p class="muted">New here? <a href="{% url 'register' %}">Register</a></p>
+  {% else %}
+  <form method="post" novalidate>{% csrf_token %}
+    {% include "exam/_form.html" %}
+    <button class="btn" type="submit">Continue</button>
+  </form>
+  <p class="muted">Candidate? <a href="{% url 'student_login' %}">Student login</a></p>
+  {% endif %}
+</div>
+{% endblock %}

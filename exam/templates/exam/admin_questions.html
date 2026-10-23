@@ -1,0 +1,29 @@
+{% extends "exam/base.html" %}
+{% block title %}Question bank{% endblock %}
+{% block content %}
+<h1>Question bank</h1>
+<div class="card"><h2>Active questions</h2>
+  <table><thead><tr><th>Skill</th>{% for k, l in levels %}<th>{{ l }}</th>{% endfor %}</tr></thead>
+  <tbody>{% for r in matrix %}<tr><td>{{ r.skill }}</td>{% for c in r.cells %}<td>{{ c }}</td>{% endfor %}</tr>{% endfor %}</tbody></table>
+</div>
+<p><a class="btn" href="{% url 'admin_question_new' %}">Add question</a>
+   <a class="btn secondary" href="{% url 'admin_import' %}">Bulk import (CSV)</a></p>
+<form method="get" class="filters">
+  <input name="q" value="{{ g.q }}" placeholder="Search text">
+  <select name="skill"><option value="">All skills</option><option value="sql" {% if g.skill == 'sql' %}selected{% endif %}>SQL</option><option value="python" {% if g.skill == 'python' %}selected{% endif %}>Python</option></select>
+  <select name="difficulty"><option value="">All levels</option>{% for k, l in levels %}<option value="{{ k }}" {% if g.difficulty == k %}selected{% endif %}>{{ l }}</option>{% endfor %}</select>
+  <select name="status"><option value="">Any status</option><option value="active" {% if g.status == 'active' %}selected{% endif %}>Active</option><option value="archived" {% if g.status == 'archived' %}selected{% endif %}>Archived</option></select>
+  <button class="btn" type="submit">Filter</button>
+</form>
+<div class="card"><table>
+  <thead><tr><th>ID</th><th>Skill</th><th>Level</th><th>Question</th><th>Key</th><th>Status</th><th></th></tr></thead>
+  <tbody>{% for q in page %}
+    <tr><td>{{ q.pk }}</td><td>{{ q.skill }}</td><td>{{ q.difficulty }}</td><td>{{ q.prompt|truncatechars:90 }}</td>
+      <td>{{ q.answer_key }}</td><td>{{ q.active|yesno:"Active,Archived" }}</td>
+      <td><a href="{% url 'admin_question_edit' q.pk %}">Edit</a>
+        <form method="post" action="{% url 'admin_question_toggle' q.pk %}" class="inline">{% csrf_token %}
+          <button class="linklike" type="submit">{{ q.active|yesno:"Archive,Restore" }}</button></form></td></tr>
+  {% empty %}<tr><td colspan="7" class="muted">No questions.</td></tr>{% endfor %}</tbody>
+</table></div>
+{% include "exam/_pager.html" %}
+{% endblock %}

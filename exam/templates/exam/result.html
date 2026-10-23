@@ -1,0 +1,8 @@
+{% extends "exam/base.html" %}
+{% block title %}Result{% endblock %}
+{% block content %}
+{% include "exam/_result_body.html" %}
+<p><a class="btn secondary" href="{% url 'student_dashboard' %}">Back to dashboard</a></p>
+<p class="muted">Eligible candidates may be contacted after further review. Passing this assessment does not
+guarantee placement; eligibility, assessment and programme terms still apply.</p>
+{% endblock %}

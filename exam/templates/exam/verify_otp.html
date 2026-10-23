@@ -1,0 +1,16 @@
+{% extends "exam/base.html" %}
+{% block title %}Verify email{% endblock %}
+{% block content %}
+<div class="card narrow">
+  <h1>Verify your email</h1>
+  <p>We sent a 6-digit code to <b>{{ email }}</b>.</p>
+  {% if dev_mode %}<p class="muted"></p>{% endif %}
+  <form method="post" novalidate>{% csrf_token %}
+    {% include "exam/_form.html" %}
+    <button class="btn" type="submit">Verify &amp; login</button>
+  </form>
+  <form method="post" action="{% url 'resend_otp' %}">{% csrf_token %}
+    <button class="linklike" type="submit">Resend code</button>
+  </form>
+</div>
+{% endblock %}

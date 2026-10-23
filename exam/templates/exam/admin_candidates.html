@@ -1,0 +1,22 @@
+{% extends "exam/base.html" %}
+{% block title %}Candidates{% endblock %}
+{% block content %}
+<h1>Candidates / Roll number list</h1>
+<form method="get" class="filters"><input name="q" value="{{ q }}" placeholder="Search name, email, roll no, phone">
+  
+  <button class="btn" type="submit">Search</button>
+  <select style="margin-left:500px;" name="period" onchange="this.form.submit()">
+    {% for val, label in periods %}<option value="{{ val }}" {% if val == period %}selected{% endif %}>{{ label }}</option>{% endfor %}
+  </select>
+  </form>
+<div class="card"><table>
+  <thead><tr><th>Roll No</th><th>Name</th><th>Email</th><th>Phone</th><th>Verified</th><th>Active</th><th>Attempts</th><th>Registered</th><th></th></tr></thead>
+  <tbody>{% for s in page %}
+    <tr><td>{{ s.roll_number }}</td><td>{{ s.name }}</td><td>{{ s.email }}</td><td>{{ s.phone|default:"-" }}</td>
+      <td>{{ s.email_verified|yesno:"Yes,No" }}</td><td>{{ s.user.is_active|yesno:"Yes,No" }}</td>
+      <td>{{ s.n_attempts }}</td><td>{{ s.created_at|date:"d M Y" }}</td>
+      <td><a href="{% url 'admin_candidate_edit' s.pk %}">Edit</a></td></tr>
+  {% empty %}<tr><td colspan="9" class="muted">No candidates found.</td></tr>{% endfor %}</tbody>
+</table></div>
+{% include "exam/_pager.html" %}
+{% endblock %}

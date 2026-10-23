@@ -1,0 +1,502 @@
+
+{% block content %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+.result-page {
+    --bg: #e3e4e7;
+    --surface: #131a3a;
+    --surface-2: #1a2350;
+    --line: #2a3566;
+    --text: #eaeeff;
+    --muted: #94a0cf;
+    --violet: #7c5cff;
+    --cyan: #22d3ee;
+    --sql: #4f9dff;
+    --py: #ffc93c;
+    --good: #34d399;
+    --bad: #fb7185;
+
+    box-sizing: border-box;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1560px, calc(100vw - 40px));
+    margin: 18px 0;
+    padding: 34px;
+    border-radius: 30px;
+    font-family: "Space Grotesk", "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    line-height: 1.5;
+    background:
+        radial-gradient(600px 300px at 90% -5%, rgba(124, 92, 255, 0.25), transparent 70%),
+        radial-gradient(500px 300px at -5% 60%, rgba(34, 211, 238, 0.12), transparent 70%),
+        var(--bg);
+    box-shadow: 0 25px 60px rgba(10, 15, 36, 0.45);
+}
+
+.result-page *, .result-page *::before, .result-page *::after { box-sizing: border-box; }
+.result-page [hidden] { display: none !important; }
+
+.result-page a:focus-visible,
+.result-page button:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+
+/* ================= HERO RESULT ================= */
+.rp-hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: 30px;
+    align-items: center;
+    padding: 44px;
+    margin-bottom: 28px;
+    border-radius: 26px;
+    overflow: hidden;
+    color: #fff;
+    background: linear-gradient(125deg, #3b1fb8 0%, #5b3df0 45%, #0891b2 100%);
+    background-size: 200% 200%;
+    animation: heroShift 16s ease-in-out infinite alternate;
+}
+
+.rp-hero.pass { background-image: linear-gradient(125deg, #064e3b 0%, #059669 50%, #0891b2 100%); }
+.rp-hero.fail { background-image: linear-gradient(125deg, #7f1235 0%, #be3a5e 50%, #6d28d9 100%); }
+
+@keyframes heroShift { from { background-position: 0% 40%; } to { background-position: 100% 60%; } }
+
+.rp-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.14) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+    mask-image: linear-gradient(90deg, transparent, #000 90%);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 90%);
+}
+
+.rp-hero > * { position: relative; z-index: 1; }
+
+.rp-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 26px; }
+
+.rp-meta span {
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(10, 15, 36, 0.35);
+    border: 1px solid rgba(255,255,255,0.18);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.rp-meta .roll { font-family: "JetBrains Mono", monospace; font-size: 12px; }
+
+.rp-score {
+    margin: 0;
+    font-size: 92px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -3px;
+    color: #fff;
+}
+
+.rp-score .of { font-size: 44px; font-weight: 500; letter-spacing: -1px; opacity: 0.7; }
+.rp-score small { display: block; margin-top: 10px; font-size: 20px; font-weight: 500; letter-spacing: 0; opacity: 0.85; }
+
+.rp-verdict { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: 24px; }
+
+.rp-badge {
+    display: inline-block;
+    padding: 10px 26px;
+    border-radius: 999px;
+    background: #fff;
+    color: #3b1fb8;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+}
+
+.rp-badge.pass { color: #047857; }
+.rp-badge.fail { color: #be123c; }
+
+.rp-note { margin: 0; max-width: 360px; font-size: 15px; color: rgba(255,255,255,0.88); }
+
+.rp-again {
+    padding: 9px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    font: 600 14px "Space Grotesk", "Segoe UI", sans-serif;
+    cursor: pointer;
+}
+
+.rp-again:hover { background: rgba(255,255,255,0.24); }
+
+/* big ring */
+.rp-ring-wrap { display: grid; place-items: center; }
+
+.rp-ring {
+    --p: 0;
+    display: grid;
+    place-items: center;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: conic-gradient(#fff calc(var(--p) * 1%), rgba(255,255,255,0.2) 0);
+    box-shadow: 0 0 60px rgba(255,255,255,0.15);
+}
+
+.rp-ring::after {
+    content: "";
+    grid-area: 1 / 1;
+    width: 206px;
+    height: 206px;
+    border-radius: 50%;
+    background: #0c1230;
+}
+
+.rp-ring-text { grid-area: 1 / 1; position: relative; z-index: 1; text-align: center; }
+.rp-ring-text strong { display: block; font-size: 56px; line-height: 1; font-weight: 700; color: #fff; }
+.rp-ring-text span { font-size: 14px; color: #cfd6ff; }
+
+/* ================= BREAKDOWN ================= */
+.rp-section-title { margin: 0 0 16px; font-size: 22px; font-weight: 700; color: #fff; }
+
+.rp-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: start;
+}
+
+.rp-card {
+    --tone: var(--sql);
+    position: relative;
+    min-width: 0;
+    padding: 28px;
+    border-radius: 22px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--tone);
+    overflow: hidden;
+}
+
+.rp-card.tone-b { --tone: var(--py); }
+
+.rp-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(124, 92, 255, 0.16), transparent 60%);
+}
+
+.rp-card:hover::after { opacity: 1; }
+
+.rp-card-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 22px; }
+
+.rp-card h2 { margin: 0; font-size: 24px; font-weight: 700; color: #fff; }
+.rp-card h2 em { display: block; margin-top: 4px; font-style: normal; font-size: 34px; color: var(--tone); }
+.rp-card h2 small { font-size: 15px; font-weight: 500; color: var(--muted); }
+
+.mini-ring {
+    --p: 0;
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    background: conic-gradient(var(--tone) calc(var(--p) * 1%), var(--line) 0);
+}
+
+.mini-ring::after { content: ""; grid-area: 1 / 1; width: 58px; height: 58px; border-radius: 50%; background: var(--surface); }
+.mini-ring span { grid-area: 1 / 1; position: relative; z-index: 1; font-size: 14px; font-weight: 700; color: #fff; }
+
+.rp-table { width: 100%; margin: 0; border-collapse: collapse; background: transparent; }
+
+.rp-table th {
+    padding: 11px 12px;
+    background: var(--surface-2);
+    border: 0;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.rp-table th:first-child { border-radius: 10px 0 0 10px; }
+.rp-table th:last-child { border-radius: 0 10px 10px 0; }
+
+.rp-table td {
+    padding: 15px 12px;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    background: transparent;
+    color: var(--text);
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+.rp-table tbody tr:last-child td { border-bottom: 0; }
+.rp-table td.lvl { font-weight: 600; width: 30%; }
+.rp-table td.num { width: 22%; white-space: nowrap; font-weight: 700; }
+
+.bar { height: 9px; overflow: hidden; border-radius: 999px; background: var(--line); }
+.bar i { display: block; height: 100%; border-radius: 999px; background: var(--tone); transition: width 1.1s cubic-bezier(0.2, 0.8, 0.2, 1); }
+
+.rp-empty { padding: 20px 0 6px; color: var(--muted); font-size: 14px; }
+
+/* confetti canvas */
+.confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; }
+
+/* reveal on scroll (only when JS runs) */
+.result-page.js .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.result-page.js .reveal.in { opacity: 1; transform: none; }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 960px) {
+    .rp-hero { grid-template-columns: 1fr; padding: 32px; }
+    .rp-grid { grid-template-columns: 1fr; }
+    .rp-ring { width: 210px; height: 210px; }
+    .rp-ring::after { width: 172px; height: 172px; }
+}
+
+@media (max-width: 550px) {
+    .result-page { width: calc(100vw - 12px); margin: 8px 0; padding: 12px; border-radius: 20px; }
+    .rp-hero { padding: 24px 20px; border-radius: 20px; }
+    .rp-score { font-size: 68px; letter-spacing: -2px; }
+    .rp-score .of { font-size: 32px; }
+    .rp-card { padding: 20px; }
+    .rp-card h2 em { font-size: 28px; }
+    .rp-table td.lvl, .rp-table td.num { width: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rp-hero { animation: none; }
+    .bar i { transition: none; }
+}
+</style>
+
+
+<div class="result-page">
+
+    <section class="rp-hero {{ attempt.result|lower }}">
+        <div>
+            <div class="rp-meta">
+                <span>{{ attempt.student.name }}</span>
+                <span class="roll">Roll {{ attempt.student.roll_number }}</span>
+                <span>{{ attempt.submitted_at|date:"d M Y, H:i" }}</span>
+            </div>
+
+            <h1 class="rp-score">
+                <span class="count" data-to="{{ attempt.total_score }}">{{ attempt.total_score }}</span><span class="of"> / {{ attempt.total_max }}</span>
+                <small>{{ attempt.percentage }}% overall</small>
+            </h1>
+
+            <div class="rp-verdict">
+                <span class="rp-badge {{ attempt.result|lower }}">{{ attempt.result }}</span>
+
+                {% if attempt.result|lower == 'pass' %}
+                    <p class="rp-note">Great work! You cleared the pass mark.</p>
+                {% elif attempt.result|lower == 'fail' %}
+                    <p class="rp-note">Not this time. Check your weaker levels below and try again.</p>
+                {% else %}
+                    <p class="rp-note">Your result has been recorded.</p>
+                {% endif %}
+
+                {% if attempt.result|lower == 'pass' %}
+                    <button type="button" class="rp-again" id="celebrate" hidden>Celebrate again</button>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="rp-ring-wrap">
+            <div class="rp-ring" id="big-ring" data-p="{{ attempt.percentage|floatformat:'0' }}" style="--p: {{ attempt.percentage|floatformat:'0' }}">
+                <div class="rp-ring-text">
+                    <strong id="big-ring-num">{{ attempt.percentage|floatformat:"0" }}%</strong>
+                    <span>Your score</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <h2 class="rp-section-title">Score breakdown</h2>
+
+    <div class="rp-grid">
+    {% for s in summary %}
+        <div class="rp-card {% cycle 'tone-a' 'tone-b' %}">
+            <div class="rp-card-head">
+                <h2>
+                    {{ s.label }}
+                    <em>{{ s.score }}/{{ s.max }}</em>
+                    <small>{{ s.pct }}% of this section</small>
+                </h2>
+                <div class="mini-ring" data-p="{{ s.pct|floatformat:'0' }}" style="--p: {{ s.pct|floatformat:'0' }}"><span>{{ s.pct|floatformat:"0" }}%</span></div>
+            </div>
+
+            {% if s.levels %}
+            <table class="rp-table">
+                <thead><tr><th>Level</th><th>Score</th><th>Progress</th></tr></thead>
+                <tbody>
+                {% for l in s.levels %}
+                    {% widthratio l.score l.max 100 as lp %}
+                    <tr>
+                        <td class="lvl">{{ l.label }}</td>
+                        <td class="num">{{ l.score }}/{{ l.max }}</td>
+                        <td><div class="bar"><i data-w="{{ lp }}" style=></i></div></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+                <p class="rp-empty">No level details for this section.</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+    </div>
+
+</div>
+
+<script>
+(function () {
+    var root = document.querySelector('.result-page');
+    if (!root) return;
+
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var hasIO = 'IntersectionObserver' in window;
+    function $(s, c) { return (c || root).querySelector(s); }
+    function $$(s, c) { return Array.prototype.slice.call((c || root).querySelectorAll(s)); }
+    function ease(p) { return 1 - Math.pow(1 - p, 3); }
+
+    function animate(dur, fn) {
+        var t0 = null;
+        function step(t) {
+            if (t0 === null) t0 = t;
+            var p = Math.min((t - t0) / dur, 1);
+            fn(ease(p));
+            if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+    }
+
+    /* count-up score */
+    function runCount(el) {
+        var to = parseFloat(el.getAttribute('data-to'));
+        if (isNaN(to)) return;
+        var whole = Math.floor(to) === to;
+        animate(1300, function (e) { var v = to * e; el.textContent = whole ? Math.round(v) : v.toFixed(1); });
+    }
+
+    /* rings fill up, numbers count with them */
+    function runRing(el) {
+        var to = parseFloat(el.getAttribute('data-p')) || 0;
+        var num = el.id === 'big-ring' ? document.getElementById('big-ring-num') : $('span', el);
+        animate(1500, function (e) {
+            var v = to * e;
+            el.style.setProperty('--p', v);
+            if (num) num.textContent = Math.round(v) + '%';
+        });
+    }
+
+    /* level bars grow */
+    function runBar(el) { el.style.width = el.getAttribute('data-w') + '%'; }
+
+    if (!reduce && hasIO) {
+        var items = $$('.count').concat($$('.rp-ring'), $$('.mini-ring'), $$('.bar i'));
+        items.forEach(function (el) {
+            if (el.classList.contains('count')) el.textContent = '0';
+            else if (el.tagName === 'I') el.style.width = '0%';
+            else {
+                el.style.setProperty('--p', 0);
+                var n = el.id === 'big-ring' ? document.getElementById('big-ring-num') : $('span', el);
+                if (n) n.textContent = '0%';
+            }
+        });
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+                if (!en.isIntersecting) return;
+                io.unobserve(en.target);
+                var t = en.target;
+                if (t.classList.contains('count')) runCount(t);
+                else if (t.tagName === 'I') runBar(t);
+                else runRing(t);
+            });
+        }, { threshold: 0.3 });
+        items.forEach(function (el) { io.observe(el); });
+
+        var secs = $$('.rp-section-title, .rp-card');
+        secs.forEach(function (el, k) { el.classList.add('reveal'); el.style.transitionDelay = ((k % 2) * 120) + 'ms'; });
+        root.classList.add('js');
+        var io2 = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io2.unobserve(en.target); } });
+        }, { threshold: 0.1 });
+        secs.forEach(function (el) { io2.observe(el); });
+    }
+
+    /* spotlight on cards */
+    $$('.rp-card').forEach(function (c) {
+        c.addEventListener('mousemove', function (e) {
+            var r = c.getBoundingClientRect();
+            c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+            c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+        });
+    });
+
+    /* confetti for a pass */
+    function confetti() {
+        var c = document.createElement('canvas');
+        c.className = 'confetti';
+        c.width = window.innerWidth;
+        c.height = window.innerHeight;
+        document.body.appendChild(c);
+        var ctx = c.getContext('2d');
+        var colors = ['#7c5cff', '#22d3ee', '#34d399', '#ffc93c', '#fb7185', '#ffffff'];
+        var ps = [];
+        for (var i = 0; i < 180; i++) {
+            ps.push({
+                x: c.width * (i % 2 ? 0.25 : 0.75) + (Math.random() - 0.5) * 120,
+                y: c.height * 0.4,
+                vx: (Math.random() - 0.5) * 18,
+                vy: -Math.random() * 15 - 5,
+                w: 6 + Math.random() * 6,
+                h: 8 + Math.random() * 8,
+                r: Math.random() * 6,
+                vr: (Math.random() - 0.5) * 0.4,
+                c: colors[i % colors.length]
+            });
+        }
+        var t0 = performance.now(), life = 4200;
+        function frame(t) {
+            var el = t - t0;
+            ctx.clearRect(0, 0, c.width, c.height);
+            ps.forEach(function (p) {
+                p.vy += 0.35; p.vx *= 0.99; p.x += p.vx; p.y += p.vy; p.r += p.vr;
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate(p.r);
+                ctx.globalAlpha = Math.max(0, 1 - el / life);
+                ctx.fillStyle = p.c;
+                ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+                ctx.restore();
+            });
+            if (el < life) requestAnimationFrame(frame); else c.remove();
+        }
+        requestAnimationFrame(frame);
+    }
+
+    var hero = $('.rp-hero');
+    var again = document.getElementById('celebrate');
+    if (hero && hero.classList.contains('pass') && !reduce) {
+        setTimeout(confetti, 500);
+        if (again) { again.hidden = false; again.addEventListener('click', confetti); }
+    }
+})();
+</script>
+
+{% endblock %}

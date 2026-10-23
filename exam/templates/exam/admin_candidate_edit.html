@@ -1,0 +1,14 @@
+{% extends "exam/base.html" %}
+{% block title %}Edit candidate{% endblock %}
+{% block content %}
+<div class="grid2">
+<div class="card"><h1>Edit {{ student.roll_number }}</h1>
+  <p class="muted">{{ student.email }}</p>
+  <form method="post" novalidate>{% csrf_token %}{% include "exam/_form.html" %}
+    <button class="btn" type="submit">Save</button> <a href="{% url 'admin_candidates' %}">Cancel</a></form></div>
+<div class="card"><h2>Attempts</h2><table><tbody>{% for a in attempts %}
+  <tr><td><a href="{% url 'admin_attempt' a.pk %}">#{{ a.pk }}</a></td><td>{{ a.started_at|date:"d M Y H:i" }}</td>
+  <td>{{ a.get_status_display }}</td><td>{% if a.result %}{{ a.total_score }}/{{ a.total_max }} {{ a.result }}{% endif %}</td></tr>
+  {% empty %}<tr><td class="muted">None</td></tr>{% endfor %}</tbody></table></div>
+</div>
+{% endblock %}

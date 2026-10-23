@@ -1,0 +1,8 @@
+{% extends "exam/base.html" %}
+{% block title %}Settings{% endblock %}
+{% block content %}
+<div class="card narrow wide"><h1>Assessment settings</h1>
+<form method="post" novalidate>{% csrf_token %}{% include "exam/_form.html" %}
+  <button class="btn" type="submit">Save</button></form>
+<p class="muted"><a href="{% url 'admin_audit' %}">View audit trail</a></p></div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "exam/base.html" %}
+{% block title %}Attempt #{{ attempt.pk }}{% endblock %}
+{% block content %}
+<h1>Attempt #{{ attempt.pk }} - {{ attempt.student.name }}</h1>
+<p class="muted">{{ attempt.student.email }} | {{ attempt.student.phone|default:"-" }} | Roll {{ attempt.student.roll_number }}
+ | <a href="{% url 'admin_results' %}">Back to results</a></p>
+{% if attempt.status == 'submitted' %}
+  {% include "exam/_result_body.html" %}
+  <div class="card"><h2>Answer review (admin only)</h2>
+  {% for r in review %}
+    <div class="rev {% if r.a.is_correct %}ok{% else %}bad{% endif %}">
+      <b>Q{{ r.a.position }} [{{ r.q.skill }}/{{ r.q.difficulty }}]</b> {{ r.q.prompt }}<br>
+      Chosen: {{ r.chosen }}<br>Correct: {{ r.correct }}
+    </div>
+  {% endfor %}</div>
+{% else %}<div class="card">This attempt is still in progress.</div>{% endif %}
+{% endblock %}

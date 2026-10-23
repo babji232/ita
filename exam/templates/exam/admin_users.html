@@ -1,0 +1,46 @@
+{% extends "exam/base.html" %}
+{% block title %}Add Admin{% endblock %}
+{% block content %}
+<h1>Admin users</h1>
+<div class="admin-users-layout">
+  <div class="card">
+    <h2>All admins <small class="muted"></small></h2>
+    <div style="overflow-x:auto"><table>
+      <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Status</th><th>Last login</th><th>Created</th><th>Actions</th></tr></thead>
+      <tbody>{% for a in admins %}
+        <tr>
+          <td>{{ a.id }}</td>
+          <td>{{ a.first_name|default:"-" }}</td>
+          <td>{{ a.email }}</td>
+          <td>{% if a.is_active %}Active{% else %}Disabled{% endif %}</td>
+          <td>{{ a.last_login|date:"d M Y H:i"|default:"Never" }}</td>
+          <td>{{ a.date_joined|date:"d M Y" }}</td>
+          <td style="white-space:nowrap">
+            <a href="{% url 'admin_user_edit' a.pk %}">Edit</a>
+            {% if a.pk != user.pk %}
+            <form method="post" action="{% url 'admin_user_delete' a.pk %}" class="inline"
+                  onsubmit="return confirm('Delete admin {{ a.email|escapejs }}?');">{% csrf_token %}
+              <button class="linklike" type="submit" style="color:#c0392b">Delete</button>
+            </form>
+            {% else %}<span class="muted">(you)</span>{% endif %}
+          </td>
+        </tr>
+      {% empty %}<tr><td colspan="7" class="muted">No admins found.</td></tr>{% endfor %}</tbody>
+    </table></div>
+  </div>
+
+  <div class="card">
+    {% if editing %}
+      <h2>Edit admin</h2>
+      <p class="muted">{{ editing.email }}</p>
+    {% else %}
+      <h2>Add admin</h2>
+    {% endif %}
+    <form method="post" novalidate>{% csrf_token %}
+      {% include "exam/_form.html" %}
+      <button class="btn" type="submit">{% if editing %}Save changes{% else %}Add admin{% endif %}</button>
+      {% if editing %}<a class="btn secondary" href="{% url 'admin_users' %}">Cancel</a>{% endif %}
+    </form>
+  </div>
+</div>
+{% endblock %}

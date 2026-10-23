@@ -1,0 +1,29 @@
+{% extends "exam/base.html" %}
+{% block title %}Results{% endblock %}
+{% block content %}
+<h1>Student exam data</h1>
+<form method="get" class="filters">
+  <input name="q" value="{{ g.q }}" placeholder="Name / email / roll no">
+  <select name="result"><option value="">Any result</option>
+    <option value="PASS" {% if g.result == 'PASS' %}selected{% endif %}>PASS</option>
+    <option value="FAIL" {% if g.result == 'FAIL' %}selected{% endif %}>FAIL</option></select>
+  <input type="date" name="date_from" value="{{ g.date_from }}" title="From">
+  <input type="date" name="date_to" value="{{ g.date_to }}" title="To">
+  <input type="number" name="min_total" value="{{ g.min_total }}" placeholder="Min overall" min="0">
+  <input type="number" name="min_sql" value="{{ g.min_sql }}" placeholder="Min SQL" min="0">
+  <input type="number" name="min_python" value="{{ g.min_python }}" placeholder="Min Python" min="0">
+  <button class="btn" type="submit">Filter</button>
+  <a class="btn secondary" href="{% url 'export_results' %}?{{ params }}">Export CSV / Excel</a>
+</form>
+<div class="card"><table>
+  <thead><tr><th>ID</th><th>Roll</th><th>Name</th><th>Email</th><th>Submitted</th><th>SQL</th><th>Python</th><th>Overall</th><th>%</th><th>Result</th></tr></thead>
+  <tbody>{% for a in page %}
+    <tr><td><a href="{% url 'admin_attempt' a.pk %}">#{{ a.pk }}</a></td><td>{{ a.student.roll_number }}</td>
+      <td>{{ a.student.name }}</td><td>{{ a.student.email }}</td><td>{{ a.submitted_at|date:"d M Y H:i" }}</td>
+      <td>{{ a.sql_score }}/{{ a.sql_max }}</td><td>{{ a.python_score }}/{{ a.python_max }}</td>
+      <td>{{ a.total_score }}/{{ a.total_max }}</td><td>{{ a.percentage }}</td>
+      <td><span class="badge {{ a.result|lower }}">{{ a.result }}</span></td></tr>
+  {% empty %}<tr><td colspan="10" class="muted">No results.</td></tr>{% endfor %}</tbody>
+</table></div>
+{% include "exam/_pager.html" %}
+{% endblock %}

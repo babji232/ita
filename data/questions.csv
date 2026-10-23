@@ -1,0 +1,601 @@
+skill,difficulty,topic,prompt,option_a,option_b,option_c,option_d,answer_key,explanation,marks,active
+sql,easy,SQL,What does SQL stand for?,Sequential Question Language,Simple Query Logic,Structured Query Language,Standard Quick Language,C,,1,1
+sql,easy,SQL,A database is:,"An organized collection of data that can be accessed, managed, and updated",A programming language,A type of operating system,A spreadsheet program,A,,1,1
+sql,easy,SQL,What is a DBMS?,A backup tool,A type of table,A query language,Software that stores and manages databases and controls access to data,D,,1,1
+sql,easy,SQL,What is an RDBMS?,A system that stores data as documents only,A system that stores data in related tables of rows and columns,A reporting tool,A system that stores data in files only,B,,1,1
+sql,easy,SQL,A table in a database stores:,Only indexes,Only column names,Only queries,Related records in rows and attributes in columns,D,,1,1
+sql,easy,SQL,A row (record) in a table represents:,A database schema,One column definition,One record with values for its columns,An index,C,,1,1
+sql,easy,SQL,A column (field) defines:,A relationship between tables,One attribute and its data type for records,One complete record,A database user,B,,1,1
+sql,easy,SQL,A schema is:,A logical namespace or structure containing objects like tables and views,A single row,A backup file,A type of query,A,,1,1
+sql,easy,SQL,A primary key:,Uniquely identifies each row and cannot be NULL,Allows NULL values freely,Can contain duplicates,Links two databases,A,,1,1
+sql,easy,SQL,A foreign key:,Sorts a table,Enforces a relationship by matching values in a referenced key,Uniquely identifies rows in its own table only,Encrypts a column,B,,1,1
+sql,easy,SQL,A candidate key is:,A key used only for joins,A key that always contains NULL,A minimal set of columns that uniquely identifies a row,Any set of columns with duplicates,C,,1,1
+sql,easy,SQL,A super key is:,A key that is always numeric,A key from another table,A minimal unique key,"Any set of columns that uniquely identifies a row, even with unnecessary columns",D,,1,1
+sql,easy,SQL,A composite key:,Is a key with NULL values,Uses two or more columns together to identify a row,Is automatically generated,Uses only one column,B,,1,1
+sql,easy,SQL,A unique constraint:,Forces values to be NULL,Allows duplicate values,Deletes duplicate rows automatically,Prevents duplicate values in a column or set of columns,D,,1,1
+sql,easy,SQL,NULL in SQL represents:,An empty string,Zero,"Missing, unknown, or inapplicable data",The text 'null',C,,1,1
+sql,easy,SQL,A relational database:,Organizes data into tables related through keys,Has no relationships,Uses only unstructured data,Stores data in a single flat file,A,,1,1
+sql,easy,SQL,Metadata is:,Deleted data,Backup data,"Data about database objects such as column names, types, and constraints",The main data of a table,C,,1,1
+sql,easy,SQL,A query is:,A type of table,A request to retrieve or manipulate data,A database backup,A user account,B,,1,1
+sql,easy,SQL,A database transaction is:,A logical unit of work that can be committed or rolled back,A database schema,A single column,A type of key,A,,1,1
+sql,easy,SQL,SQL dialects are:,Different versions of Excel,SQL error codes,Different human languages for SQL,"Database-specific variations of SQL, such as MySQL and PostgreSQL",D,,1,1
+sql,easy,SQL,Which are the main categories of SQL commands?,"DOM, DDL, XML, CSS, HTML","LAN, WAN, DDL, DNS, DHCP","DDL, DML, DQL, DCL, TCL","CRUD, REST, API, SOAP, JSON",C,,1,1
+sql,easy,SQL,Which of these is a DDL command?,INSERT,COMMIT,GRANT,CREATE,D,,1,1
+sql,easy,SQL,Which of these is a DML command?,ALTER,UPDATE,REVOKE,DROP,B,,1,1
+sql,easy,SQL,DQL is commonly used for:,SELECT statements that retrieve data,Granting privileges,Creating tables,Committing transactions,A,,1,1
+sql,easy,SQL,DCL commands include:,INSERT and DELETE,COMMIT and ROLLBACK,CREATE and DROP,GRANT and REVOKE,D,,1,1
+sql,easy,SQL,TCL commands include:,COMMIT and ROLLBACK,GRANT and REVOKE,SELECT and INSERT,CREATE and ALTER,A,,1,1
+sql,easy,SQL,What does CREATE do?,Adds a row to a table,Retrieves data,"Creates a database object like a table, view, or index",Deletes a table,C,,1,1
+sql,easy,SQL,What does ALTER do?,Deletes all rows,Changes the structure of an existing database object,Grants permissions,Changes the values of rows,B,,1,1
+sql,easy,SQL,What does DROP do?,Removes only rows,Renames a column,Rolls back a transaction,Removes a database object including its definition,D,,1,1
+sql,easy,SQL,What is the difference between DROP and DELETE?,Both remove only tables,DROP removes an object; DELETE removes selected rows,Both remove only rows,DROP removes rows; DELETE removes tables,B,,1,1
+sql,easy,SQL,TRUNCATE is used to:,Remove all rows from a table efficiently,Remove a single row,Remove a column,Rename a table,A,,1,1
+sql,easy,SQL,Which statement about DELETE and TRUNCATE is correct?,TRUNCATE can use WHERE; DELETE cannot,Both drop the table structure,DELETE can use WHERE; TRUNCATE typically removes all rows,Both require WHERE,C,,1,1
+sql,easy,SQL,SQL data types define:,The query speed,The kind of values a column can store,The user permissions,The size of the database,B,,1,1
+sql,easy,SQL,What is the difference between CHAR and VARCHAR?,CHAR is variable-length; VARCHAR is fixed-length,They are identical,CHAR is numeric; VARCHAR is text,CHAR is fixed-length; VARCHAR is variable-length,D,,1,1
+sql,easy,SQL,Which data type is best for exact monetary values?,DECIMAL,INT,FLOAT,CHAR,A,,1,1
+sql,easy,SQL,FLOAT stores:,Text values,Binary data only,Approximate floating-point numbers,Exact whole numbers only,C,,1,1
+sql,easy,SQL,"DATE, TIME, and TIMESTAMP represent:",Only boolean values,"Dates, times, and date-time values",Only numbers,Only text,B,,1,1
+sql,easy,SQL,A BOOLEAN data type represents:,Any number,Binary files,True/false values (where supported),Long text,C,,1,1
+sql,easy,SQL,An auto-increment (identity) column:,Automatically generates values for inserted rows,Prevents inserts,Stores only text,Deletes old rows,A,,1,1
+sql,easy,SQL,A DEFAULT constraint:,Prevents NULL values,Creates an index,Prevents duplicates,Supplies a value when an INSERT omits the column,D,,1,1
+sql,easy,SQL,What does SELECT do?,Creates tables,Deletes data,Retrieves data from tables or views,Inserts data,C,,1,1
+sql,easy,SQL,How do you select all columns from a table?,GET * FROM table_name;,SELECT ALL table_name;,SHOW * FROM table_name;,SELECT * FROM table_name;,D,,1,1
+sql,easy,SQL,Which query selects specific columns name and salary?,"SELECT name, salary FROM employees;","SELECT [name, salary] employees;","GET name, salary FROM employees;","SELECT employees(name, salary);",A,,1,1
+sql,easy,SQL,The WHERE clause:,Joins tables,Filters rows according to a condition before grouping,Sorts results,Filters groups after aggregation,B,,1,1
+sql,easy,SQL,DISTINCT:,Deletes duplicates from the table,Counts rows,Sorts results,Removes duplicate rows from the selected result columns,D,,1,1
+sql,easy,SQL,ORDER BY:,Sorts query results by one or more expressions,Joins tables,Groups rows,Filters rows,A,,1,1
+sql,easy,SQL,ASC vs DESC:,ASC filters; DESC groups,ASC sorts descending; DESC sorts ascending,ASC sorts ascending; DESC sorts descending,Both sort randomly,C,,1,1
+sql,easy,SQL,LIMIT is used to:,Restrict the number of columns,Restrict the number of returned rows,Limit user access,Limit table size,B,,1,1
+sql,easy,SQL,Which clause filters a range of values inclusively?,WHERE salary BETWEEN 30000 AND 50000,WHERE salary IN 30000-50000,WHERE salary RANGE 30000 TO 50000,"WHERE salary WITHIN 30000, 50000",A,,1,1
+sql,easy,SQL,The IN operator:,Sorts results,Checks for NULL,Tests whether a value matches any value in a list or subquery,Joins two tables,C,,1,1
+sql,easy,SQL,"In LIKE patterns, what does % represent?",Exactly one character,Zero or more characters,A space only,A digit,B,,1,1
+sql,easy,SQL,How do you find NULL values?,== NULL,EQUALS NULL,= NULL,IS NULL,D,,1,1
+sql,easy,SQL,How do you exclude NULL values?,NOT = NULL,!= NULL,<> NULL,IS NOT NULL,D,,1,1
+sql,easy,SQL,"What are AND, OR, and NOT?",Join types,Data types,Operators to combine or negate conditions,Aggregate functions,C,,1,1
+sql,easy,SQL,An alias in SQL:,Permanently renames a column,Gives a temporary name to a column or table within a query,Deletes a column,Creates a new table,B,,1,1
+sql,easy,SQL,A calculated column is:,"A result column produced by an expression, like price * quantity AS total",An index,A primary key,A column that stores only formulas permanently,A,,1,1
+sql,easy,SQL,CASE in SQL:,Joins tables,Returns a value for the first matching WHEN branch,Creates a table,Sorts rows,B,,1,1
+sql,easy,SQL,COALESCE returns:,The count of NULLs,The last non-NULL expression,Always NULL,The first non-NULL expression in its list,D,,1,1
+sql,easy,SQL,Which statement inserts a row?,"ADD INTO table_name VALUES (v1, v2);","INSERT table_name SET v1, v2;","INSERT INTO table_name (col1, col2) VALUES (v1, v2);","PUT INTO table_name (v1, v2);",C,,1,1
+sql,easy,SQL,How can you insert multiple rows at once in many databases?,"INSERT INTO t (col) VALUES (1), (2), (3);","INSERT MANY INTO t (col) (1, 2, 3);","INSERT INTO t (col) FOR (1, 2, 3);","ADD ROWS t (1), (2), (3);",A,,1,1
+sql,easy,SQL,How do you insert data from another query?,INSERT INTO target (cols) SELECT cols FROM source WHERE condition;,SELECT INTO target VALUES source;,INSERT target = SELECT source;,COPY target FROM source;,A,,1,1
+sql,easy,SQL,Which statement updates a row?,ALTER table_name SET column = value;,UPDATE table_name SET column = value WHERE condition;,MODIFY table_name column = value;,CHANGE table_name SET column = value;,B,,1,1
+sql,easy,SQL,Why is WHERE important in UPDATE?,"Without it, UPDATE fails","Without it, UPDATE affects only one row","Without it, UPDATE typically affects every row",It makes UPDATE faster only,C,,1,1
+sql,easy,SQL,How do you delete selected rows?,DROP FROM table_name WHERE condition;,DELETE table_name WHEN condition;,REMOVE FROM table_name WHERE condition;,DELETE FROM table_name WHERE condition;,D,,1,1
+sql,easy,SQL,What happens if DELETE has no WHERE clause?,Only the first row is deleted,Nothing is deleted,The table is dropped,All rows are deleted from the table,D,,1,1
+sql,easy,SQL,A NOT NULL constraint:,Creates an index,Prevents a column from storing NULL values,Allows only NULL values,Prevents duplicate values,B,,1,1
+sql,easy,SQL,A CHECK constraint:,Verifies user passwords,Checks table names,Enforces a Boolean condition on inserted or updated values,Checks for NULLs only,C,,1,1
+sql,easy,SQL,A PRIMARY KEY constraint enforces:,Uniqueness and non-NULL values,Only non-NULL values,Foreign key references,"Only uniqueness, allowing NULL",A,,1,1
+sql,easy,SQL,A FOREIGN KEY constraint enforces:,Data encryption,Faster queries,Referential integrity between related tables,Uniqueness within a table,C,,1,1
+sql,easy,SQL,What is a JOIN?,Deletes duplicate rows,Combines rows from two or more sources based on a matching condition,Sorts two tables,Splits a table into two,B,,1,1
+sql,easy,SQL,An INNER JOIN returns:,Rows with matching values on both sides,Only unmatched rows,All rows from the left table,All rows from both tables,A,,1,1
+sql,easy,SQL,A LEFT JOIN returns:,Only matching rows,All rows from the right only,The Cartesian product,"All rows from the left and matching rows from the right, with NULLs for unmatched right-side columns",D,,1,1
+sql,easy,SQL,A RIGHT JOIN returns:,All rows from the left only,Only matching rows,Only unmatched rows,All rows from the right and matching rows from the left,D,,1,1
+sql,easy,SQL,A FULL OUTER JOIN returns:,Only matched rows,The Cartesian product,Matched rows plus unmatched rows from both sides,Only the left table rows,C,,1,1
+sql,easy,SQL,A CROSS JOIN returns:,The Cartesian product of the two sources,Only unmatched rows,Only matching rows,The union of results,A,,1,1
+sql,easy,SQL,UNION:,Returns only differing rows,Combines result sets and removes duplicates,Returns only common rows,Combines result sets and keeps duplicates,B,,1,1
+sql,easy,SQL,UNION ALL:,Joins two tables on keys,Combines and removes duplicates,Combines result sets without removing duplicates,Returns only common rows,C,,1,1
+sql,easy,SQL,An aggregate function:,"Calculates a result from multiple rows, like COUNT, SUM, AVG",Defines constraints,Works on a single row only,Creates tables,A,,1,1
+sql,easy,SQL,COUNT(*) returns:,Only rows with non-NULL values,"The number of rows in the group, including rows with NULLs in columns",The number of columns,The sum of all values,B,,1,1
+sql,easy,SQL,Difference between COUNT(*) and COUNT(column):,COUNT(column) counts distinct values,They are identical,COUNT(*) counts non-NULL; COUNT(column) counts rows,COUNT(*) counts rows; COUNT(column) counts non-NULL values,D,,1,1
+sql,easy,SQL,SUM() does what?,Averages values,Adds non-NULL values in a numeric expression,Finds the largest value,Counts rows,B,,1,1
+sql,easy,SQL,AVG() calculates:,The most common value,The middle value including NULLs,The average of non-NULL numeric values,The total of all values,C,,1,1
+sql,easy,SQL,MIN() and MAX() return:,The first and last rows,The shortest and longest tables,The count of values,The minimum and maximum values in a set,D,,1,1
+sql,easy,SQL,GROUP BY:,Groups rows with equal values so aggregates can be calculated per group,Sorts rows,Filters rows before aggregation,Joins tables,A,,1,1
+sql,easy,SQL,HAVING:,"Filters groups, commonly based on aggregate results",Sorts groups,Filters individual rows before grouping,Joins groups,A,,1,1
+sql,easy,SQL,Difference between WHERE and HAVING:,HAVING works only without GROUP BY,WHERE filters rows before grouping; HAVING filters groups after grouping,They are identical,WHERE filters groups; HAVING filters rows,B,,1,1
+sql,easy,SQL,Which query counts employees per department?,"SELECT department_id, COUNT(*) FROM employees ORDER BY department_id;",SELECT COUNT(department_id) FROM employees WHERE GROUP;,SELECT department_id COUNT FROM employees;,"SELECT department_id, COUNT(*) FROM employees GROUP BY department_id;",D,,1,1
+sql,easy,SQL,How do you find departments with more than five employees?,Use WHERE COUNT(*) > 5,Use LIMIT 5,GROUP BY department and use HAVING COUNT(*) > 5,Use ORDER BY COUNT(*) > 5,C,,1,1
+sql,easy,SQL,A view is:,A named query presented like a virtual table,A stored procedure,A copy of a table,A type of index,A,,1,1
+sql,easy,SQL,Why use a view?,To permanently store extra data,To speed up all writes,To replace primary keys,To simplify complex queries and restrict exposure to selected columns or rows,D,,1,1
+sql,easy,SQL,An index is:,A type of constraint only,A copy of a table,A data structure that can speed up retrieval at the cost of storage and write overhead,A transaction log,C,,1,1
+sql,easy,SQL,ACID stands for:,"Atomicity, Concurrency, Indexing, Durability","Atomicity, Consistency, Isolation, Durability","Accuracy, Control, Integrity, Data","Access, Consistency, Isolation, Data",B,,1,1
+sql,easy,SQL,COMMIT:,Deletes a table,Cancels changes,Makes a transaction's changes permanent,Starts a transaction,C,,1,1
+sql,easy,SQL,ROLLBACK:,Cancels uncommitted changes in the current transaction,Creates a savepoint,Drops a table,Saves changes permanently,A,,1,1
+sql,easy,SQL,A stored procedure is:,A backup file,A named database routine containing SQL statements and logic,A type of index,A table constraint,B,,1,1
+sql,easy,SQL,A trigger:,Runs only when manually called,Is a user account,Is a type of index,"Automatically runs in response to events like INSERT, UPDATE, or DELETE",D,,1,1
+sql,easy,SQL,Which statement correctly creates an employees table with id as primary key?,NEW TABLE employees (id INT);,CREATE employees TABLE (id PRIMARY KEY);,"CREATE TABLE employees (id INT PRIMARY KEY, name VARCHAR(100) NOT NULL, department_id INT, salary DECIMAL(10,2));","MAKE TABLE employees (id INT KEY, name TEXT);",C,,1,1
+sql,easy,SQL,Which query finds employees earning more than 50000?,"SELECT id, name, salary FROM employees IF salary > 50000;","SELECT id, name, salary FROM employees WHERE salary > 50000;","SELECT id, name, salary FROM employees HAVING salary > 50000;","SELECT id, name, salary FROM employees GROUP BY salary > 50000;",B,,1,1
+sql,easy,SQL,Which query sorts employees by salary highest to lowest?,"SELECT id, name, salary FROM employees ORDER BY salary ASC;","SELECT id, name, salary FROM employees GROUP BY salary DESC;","SELECT id, name, salary FROM employees SORT salary DESC;","SELECT id, name, salary FROM employees ORDER BY salary DESC;",D,,1,1
+sql,easy,SQL,Which query counts employees in a table?,SELECT COUNT(*) AS employee_count FROM employees;,SELECT TOTAL(employees);,SELECT COUNT employees;,SELECT SUM(*) FROM employees;,A,,1,1
+sql,intermediate,SQL,"NULLIF(a, b) returns:",The larger of a and b,b always,NULL if a equals b; otherwise a,a if a equals b; otherwise NULL,C,,1,1
+sql,intermediate,SQL,Operator precedence defines:,The order in which operators are evaluated,The speed of a query,The permissions of users,The order of columns in a table,A,,1,1
+sql,intermediate,SQL,Referential actions like ON DELETE CASCADE define:,How users are granted access,How indexes are built,How tables are created,How referencing rows behave when a referenced row is deleted or updated,D,,1,1
+sql,intermediate,SQL,ON DELETE CASCADE means:,Child rows are never deleted,Deleting a parent row automatically deletes related child rows,Child rows are set to zero,Parent rows cannot be deleted,B,,1,1
+sql,intermediate,SQL,A surrogate key is:,A key based on business data,A key with duplicates,A generated identifier with no business meaning,A foreign key,C,,1,1
+sql,intermediate,SQL,A natural key is:,An auto-generated ID without meaning,A key based on meaningful business data,A key that is always numeric,A key that is always NULL,B,,1,1
+sql,intermediate,SQL,A constraint violation occurs when:,A query returns no rows,An index is dropped,A table is created,An insert or update breaks a rule like uniqueness or NOT NULL,D,,1,1
+sql,intermediate,SQL,Can a table have more than one foreign key?,Yes,Only if it has no primary key,Only in Oracle,"No, only one",A,,1,1
+sql,intermediate,SQL,Can a table have multiple unique constraints?,"Yes, and also multiple primary keys","No, only one unique constraint",Only if no primary key exists,"Yes, but only one declared primary key",D,,1,1
+sql,intermediate,SQL,A generated column is:,A column whose value is calculated from an expression,A column created by a trigger only,A column that is always NULL,A column auto-filled with random text,A,,1,1
+sql,intermediate,SQL,UPSERT means:,Upload a script,Delete then insert always,Insert a row or update an existing conflicting row,Update then delete,C,,1,1
+sql,intermediate,SQL,A SELF JOIN is:,A join between two databases,"A table joined to itself, often with aliases",A join on primary keys only,A join with no condition,B,,1,1
+sql,intermediate,SQL,An equi join:,Joins a table to itself only,Has no condition,Uses equality in the join condition,Uses < or > in the join condition,C,,1,1
+sql,intermediate,SQL,A non-equi join:,Never returns rows,Joins only two columns,Uses only equality,"Uses conditions like <, >, or BETWEEN rather than equality",D,,1,1
+sql,intermediate,SQL,A many-to-many relationship is commonly implemented with:,A trigger,A junction table,A view,A single table with duplicate rows,B,,1,1
+sql,intermediate,SQL,A junction table:,Stores associations between entities using foreign keys,Stores backups,Stores only primary keys,Stores indexes,A,,1,1
+sql,intermediate,SQL,Which requirement applies to UNION queries?,Same number of rows,Same number of columns with compatible types,Same table names,Same column names only,B,,1,1
+sql,intermediate,SQL,INTERSECT returns:,All rows from both sets,Rows in either result set,Rows present in both result sets,Rows only in the first set,C,,1,1
+sql,intermediate,SQL,EXCEPT (or MINUS) returns:,Rows from one result set that are absent from another,Duplicate rows only,Rows common to both,All rows from both,A,,1,1
+sql,intermediate,SQL,How do you find unmatched rows between two tables?,UNION ALL,CROSS JOIN only,INNER JOIN with WHERE,"LEFT JOIN and filter for NULL on the right key, or NOT EXISTS",D,,1,1
+sql,intermediate,SQL,When should you use EXISTS instead of a JOIN?,When you need columns from both tables,When you need to sort results,When you need a Cartesian product,When you only need to test whether a related row exists,D,,1,1
+sql,intermediate,SQL,COUNT(DISTINCT column) counts:,Distinct non-NULL values,All values including NULL,All rows,Duplicate values only,A,,1,1
+sql,intermediate,SQL,How do most aggregate functions treat NULL?,They treat NULL as zero,They ignore NULL inputs,They return NULL always,They raise an error,B,,1,1
+sql,intermediate,SQL,A grand total is:,A count of tables,A total of NULL values,"A total across all rows, obtained by aggregating without GROUP BY",A total per group only,C,,1,1
+sql,intermediate,SQL,How do you round an average salary to 2 decimals?,"TRIM(AVG(salary), 2)","ROUND(AVG(salary), 2)","CEIL(AVG(salary), 2)","AVG(ROUND(salary, 2)) only",B,,1,1
+sql,intermediate,SQL,A subquery is:,A query nested inside another SQL statement,A type of join,A stored procedure,A query that runs on another server,A,,1,1
+sql,intermediate,SQL,A scalar subquery returns:,Multiple columns,Multiple rows,No result,A single value: one row and one column,D,,1,1
+sql,intermediate,SQL,A Common Table Expression (CTE) is introduced by:,USING,TEMP,WITH,DEFINE,C,,1,1
+sql,intermediate,SQL,EXISTS tests whether:,A column is NULL,A value is unique,A table exists in the database,A subquery returns at least one row,D,,1,1
+sql,intermediate,SQL,A unique index:,Prevents all NULLs,Enforces uniqueness of indexed key values,Is created only on primary keys,Allows any duplicates,B,,1,1
+sql,intermediate,SQL,A full table scan:,Reads only the primary key,Scans multiple databases,Reads the table's rows to evaluate a query,Always uses an index,C,,1,1
+sql,intermediate,SQL,Why avoid SELECT * in production code?,It may retrieve unnecessary data and make code sensitive to schema changes,It locks the database,It always returns wrong data,It is a syntax error,A,,1,1
+sql,intermediate,SQL,Query optimization is:,Compressing the database,Writing queries in lowercase,Removing all joins,Choosing or improving a query plan to reduce resource usage and response time,D,,1,1
+sql,intermediate,SQL,Pagination in SQL means:,Returning results in manageable pages using LIMIT/OFFSET or similar,Splitting a table into files,Compressing results,Printing results,A,,1,1
+sql,intermediate,SQL,A stored function:,Is the same as a table,Returns a value and can often be used in expressions,Cannot contain SQL,Never returns a value,B,,1,1
+sql,intermediate,SQL,SQL injection is:,A backup method,A type of join,A vulnerability where untrusted input changes the meaning of a SQL statement,A way to speed up queries,C,,1,1
+sql,intermediate,SQL,How do you prevent SQL injection?,Concatenate user input into SQL,Give all users admin rights,Disable constraints,Use parameterized queries and least-privilege accounts,D,,1,1
+sql,intermediate,SQL,GRANT and REVOKE:,Both create tables,GRANT gives privileges; REVOKE removes them,Both control transactions,GRANT removes privileges; REVOKE gives them,B,,1,1
+sql,intermediate,SQL,Least privilege means:,Granting only the permissions required for a user's or app's responsibilities,Granting no permissions,Granting read-only to everyone,Granting all permissions to admins only,A,,1,1
+sql,intermediate,SQL,Which query finds the average salary?,SELECT AVERAGE salary FROM employees;,SELECT SUM(salary) / COUNT(*) FROM employees GROUP BY salary;,SELECT AVG(salary) AS average_salary FROM employees;,SELECT MEAN(salary) FROM employees;,C,,1,1
+sql,intermediate,SQL,Which query finds the highest salary?,SELECT TOP(salary) FROM employees;,SELECT HIGH(salary) FROM employees;,SELECT MAX salary FROM employees;,SELECT MAX(salary) AS highest_salary FROM employees;,D,,1,1
+sql,intermediate,SQL,Which query finds duplicate email addresses?,SELECT DISTINCT email FROM users;,SELECT email FROM users ORDER BY COUNT(*);,"SELECT email, COUNT(*) FROM users GROUP BY email HAVING COUNT(*) > 1;",SELECT email FROM users WHERE COUNT(*) > 1;,C,,1,1
+sql,intermediate,SQL,Which query finds rows with missing email addresses?,SELECT * FROM users WHERE email NOT NULL;,SELECT * FROM users WHERE email IS NULL;,SELECT * FROM users WHERE email = NULL;,SELECT * FROM users WHERE email = '';,B,,1,1
+sql,intermediate,SQL,What is the safe way to update an employee's salary?,"Use UPDATE with WHERE id = 101, verify with SELECT first, and use a transaction when appropriate",Delete and re-insert all rows,Use TRUNCATE,Run UPDATE without WHERE,A,,1,1
+sql,intermediate,SQL,Which query finds employees without a matching department?,SELECT e.* FROM employees e CROSS JOIN departments d;,SELECT e.* FROM employees e LEFT JOIN departments d ON d.id = e.department_id WHERE d.id IS NULL;,SELECT e.* FROM employees e UNION departments d;,SELECT e.* FROM employees e INNER JOIN departments d ON d.id = e.department_id;,B,,1,1
+sql,intermediate,SQL,Which query finds the top five highest-paid employees in MySQL/PostgreSQL?,"SELECT id, name, salary FROM employees WHERE rank <= 5;",SELECT TOP 5 FROM employees ORDER BY salary;,"SELECT id, name, salary FROM employees ORDER BY salary DESC LIMIT 5;","SELECT id, name, salary FROM employees ORDER BY salary ASC LIMIT 5;",C,,1,1
+sql,intermediate,SQL,Which query calculates department-wise average salary?,"SELECT department_id, AVG(salary) FROM employees GROUP BY department_id;","SELECT department_id, SUM(salary) / 2 FROM employees;","SELECT AVG(department_id, salary) FROM employees;","SELECT department_id, AVG(salary) FROM employees ORDER BY department_id;",A,,1,1
+sql,intermediate,SQL,Which query retrieves customers who have placed an order?,SELECT c.* FROM customers c UNION orders;,SELECT c.* FROM customers c WHERE NOT EXISTS (SELECT 1 FROM orders o WHERE o.customer_id = c.id);,SELECT c.* FROM customers c CROSS JOIN orders o;,SELECT c.* FROM customers c WHERE EXISTS (SELECT 1 FROM orders o WHERE o.customer_id = c.id);,D,,1,1
+sql,intermediate,SQL,Which query retrieves customers who have never placed an order?,SELECT c.* FROM customers c INNER JOIN orders o ON o.customer_id = c.id;,SELECT c.* FROM customers c WHERE NOT EXISTS (SELECT 1 FROM orders o WHERE o.customer_id = c.id);,SELECT c.* FROM customers c WHERE EXISTS (SELECT 1 FROM orders o WHERE o.customer_id = c.id);,SELECT c.* FROM customers c WHERE orders IS NULL;,B,,1,1
+sql,intermediate,SQL,Which query calculates order totals?,SELECT TOTAL(order_id) FROM order_items;,"SELECT order_id, quantity * unit_price FROM order_items GROUP BY quantity;","SELECT order_id, COUNT(quantity * unit_price) FROM order_items;","SELECT order_id, SUM(quantity * unit_price) AS order_total FROM order_items GROUP BY order_id;",D,,1,1
+sql,intermediate,SQL,Which is the correct logical order of processing in a SELECT query?,"FROM, WHERE, GROUP BY, HAVING, SELECT, ORDER BY","FROM, SELECT, WHERE, HAVING, GROUP BY, ORDER BY","SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY","WHERE, FROM, SELECT, GROUP BY, ORDER BY, HAVING",A,,1,1
+sql,intermediate,SQL,What does SELECT 5 + NULL return?,0,5,NULL,An error,C,,1,1
+sql,intermediate,SQL,What does the expression NULL = NULL evaluate to?,FALSE,0,UNKNOWN (NULL),TRUE,C,,1,1
+sql,intermediate,SQL,Which rows does WHERE name LIKE 'A%' match?,Names containing exactly one A,Names starting with A,Names ending with A,Names of length 1,B,,1,1
+sql,intermediate,SQL,Which rows does WHERE name LIKE '_a%' match?,Names ending with a,Names containing no a,Names whose first letter is a,Names whose second letter is a,D,,1,1
+sql,intermediate,SQL,What does ORDER BY 2 mean?,Sort by the second column in the SELECT list,Return only 2 rows,Sort by the second row,Sort in descending order,A,,1,1
+sql,intermediate,SQL,"What does SELECT DISTINCT dept, role remove?",All NULL rows,Duplicate combinations of dept and role,Duplicates in dept only,Nothing at all,B,,1,1
+sql,intermediate,SQL,What does LIMIT 5 OFFSET 10 do?,Returns 15 rows,Returns rows 5 to 10,Returns the last 5 of 10 rows,Skips the first 10 rows and returns the next 5,D,,1,1
+sql,intermediate,SQL,Which pattern returns left-table rows that have no match in the right table?,LEFT JOIN with WHERE right.key IS NULL,UNION ALL,CROSS JOIN,INNER JOIN with WHERE right.key IS NULL,A,,1,1
+sql,intermediate,SQL,"In most databases, JOIN used alone is equivalent to:",FULL OUTER JOIN,CROSS JOIN,INNER JOIN,LEFT JOIN,C,,1,1
+sql,intermediate,SQL,What does JOIN ... USING (col) do?,Limits rows by col,Joins on the same-named column in both tables and shows it once,Unions the two tables,Sorts by col,B,,1,1
+sql,intermediate,SQL,What does a NATURAL JOIN join on?,No columns (Cartesian product),Only foreign keys,All columns with the same name in both tables,Only primary keys,C,,1,1
+sql,intermediate,SQL,What does HAVING without GROUP BY do?,Treats the whole result as a single group,Acts like ORDER BY,Filters rows before aggregation,Raises a syntax error in all databases,A,,1,1
+sql,intermediate,SQL,Can a column alias defined in SELECT generally be used in WHERE?,"Yes, always",Only in subqueries,Only with GROUP BY,"Generally no, because WHERE is processed before SELECT",D,,1,1
+sql,intermediate,SQL,Which standard SQL function returns today's date?,NOWDATE,TODAY_DATE(),CURRENT_DATE,GET_DATE,C,,1,1
+sql,intermediate,SQL,What does LENGTH('SQL') return in databases that support LENGTH?,NULL,4,2,3,D,,1,1
+sql,intermediate,SQL,"What does SUBSTRING('database', 1, 4) return?",data,datab,base,atab,A,,1,1
+sql,intermediate,SQL,What does TRIM(' a ') return?,a,a,a,' a ',B,,1,1
+sql,intermediate,SQL,"What does ROUND(7.456, 1) return?",7.46,7.5,7.4,8,B,,1,1
+sql,intermediate,SQL,What does CEILING(4.1) return?,4.1,4,5,4.5,C,,1,1
+sql,intermediate,SQL,"If table a has 3 rows and table b has 4 rows, how many rows does a CROSS JOIN b return?",12,3,4,7,A,,1,1
+sql,intermediate,SQL,What is the minimum number of rows a LEFT JOIN returns?,As many as the right table has,As many as an inner join returns,Zero,As many as the left table has,D,,1,1
+sql,intermediate,SQL,UNION ALL of a 3-row result and a 4-row result returns:,3 rows,4 rows,7 rows,12 rows,C,,1,1
+sql,intermediate,SQL,Which keyword makes COUNT ignore duplicate values?,GROUP,UNIQUE,ONLY,DISTINCT,D,,1,1
+sql,intermediate,SQL,"For values 10, NULL, 20, what does AVG return?",30,15,10,NULL,B,,1,1
+sql,intermediate,SQL,"For values 1, NULL, 3, what does COUNT(column) return?",2,1,3,NULL,A,,1,1
+sql,intermediate,SQL,What does SUM return on an empty set of rows?,NULL,1,An error,0,A,,1,1
+sql,intermediate,SQL,What does COUNT(*) return on an empty table?,An error,0,NULL,1,B,,1,1
+sql,intermediate,SQL,Which statement adds a column to a table?,CREATE COLUMN c ON t;,UPDATE TABLE t ADD c INT;,INSERT COLUMN c INTO t;,ALTER TABLE t ADD COLUMN c INT;,D,,1,1
+sql,intermediate,SQL,Which statement removes a column from a table?,DELETE COLUMN c FROM t;,DROP c FROM t;,ALTER TABLE t DROP COLUMN c;,REMOVE COLUMN c;,C,,1,1
+sql,intermediate,SQL,Which statement adds a primary key to an existing table?,INSERT PRIMARY KEY INTO t;,ALTER TABLE t ADD PRIMARY KEY (id);,UPDATE t SET PRIMARY KEY id;,CREATE KEY ON t(id);,B,,1,1
+sql,intermediate,SQL,Which statement creates an index?,CREATE INDEX idx_name ON t(col);,MAKE INDEX idx_name t(col);,ALTER INDEX t ADD col;,INSERT INDEX ON t(col);,A,,1,1
+sql,intermediate,SQL,Which statement creates a view?,MAKE VIEW v FROM SELECT ...;,NEW VIEW v ...;,CREATE VIEW v AS SELECT ...;,INSERT VIEW v SELECT ...;,C,,1,1
+sql,intermediate,SQL,Can a simple single-table view usually be updated?,Only if it has an index,Never,"Always, for any view","Often yes, depending on its definition and the database",D,,1,1
+sql,intermediate,SQL,Most databases automatically create what for a PRIMARY KEY?,A view,A unique index,A stored procedure,A trigger,B,,1,1
+sql,intermediate,SQL,What does ON UPDATE CASCADE do for foreign keys?,Deletes child rows,Blocks updates to the parent key,Propagates a changed parent key to child rows,Sets child keys to NULL,C,,1,1
+sql,intermediate,SQL,What is a self-referencing foreign key commonly used for?,Hierarchical data such as employee-manager,Joining unrelated tables,Encrypting data,Creating views,A,,1,1
+sql,intermediate,SQL,A temporary table typically:,Cannot be queried,Is the same as a view,Is stored permanently for all users,Exists only for the session or transaction,D,,1,1
+sql,intermediate,SQL,What does EXPLAIN typically show?,The database size,The query execution plan,The table's data,A list of users,B,,1,1
+sql,intermediate,SQL,How does CHAR(10) usually store the value 'ab' compared with VARCHAR(10)?,Both pad to 10,Neither can store 'ab',CHAR pads to 10 characters; VARCHAR stores only what is needed,CHAR stores 2 bytes; VARCHAR pads,C,,1,1
+sql,intermediate,SQL,What does IS DISTINCT FROM provide?,A way to remove duplicates,A join type,A sorting method,A NULL-safe comparison,D,,1,1
+sql,intermediate,SQL,What does CASE WHEN score >= 50 THEN 'Pass' ELSE 'Fail' END return for score 49?,Fail,Pass,49,NULL,A,,1,1
+sql,intermediate,SQL,What does MySQL's INSERT ... ON DUPLICATE KEY UPDATE do?,Creates a duplicate table,Deletes duplicate rows,Prevents all inserts,Inserts a row or updates it if a key conflict occurs,D,,1,1
+sql,intermediate,SQL,Which data type is meant to store only a calendar date without time?,INTERVAL,DATE,TIME,TIMESTAMP,B,,1,1
+sql,intermediate,SQL,"What does MySQL's IFNULL(a, b) return when a is NULL?",b,0,a,NULL,A,,1,1
+sql,intermediate,SQL,Which clause lets you sort by multiple columns?,ORDER BY col1 AND col2,"SORT col1, col2","ORDER BY col1, col2",GROUP BY col1 ORDER col2,C,,1,1
+sql,intermediate,SQL,Which query counts distinct departments?,SELECT COUNT(UNIQUE department_id) FROM employees;,SELECT DISTINCT COUNT(department_id) FROM employees;,SELECT COUNT(*) DISTINCT FROM employees;,SELECT COUNT(DISTINCT department_id) FROM employees;,D,,1,1
+sql,intermediate,SQL,Which query returns the lowest salary?,SELECT MIN(salary) FROM employees;,SELECT BOTTOM(salary) FROM employees;,SELECT salary FROM employees HAVING MIN;,SELECT LOW(salary) FROM employees;,A,,1,1
+sql,intermediate,SQL,How do you select rows where salary is between 40000 and 60000?,WHERE salary FROM 40000 TO 60000,WHERE salary IN 40000 TO 60000,WHERE salary >= 40000 AND salary <= 60000,WHERE salary = 40000-60000,C,,1,1
+sql,intermediate,SQL,Which query lists employee names with their department names?,"SELECT e.name, d.name FROM employees e, departments d GROUP BY e.id;","SELECT e.name, d.name FROM employees e JOIN departments d ON e.department_id = d.id;","SELECT e.name, d.name FROM employees e UNION departments d;","SELECT e.name, d.name FROM employees e ORDER BY d.id;",B,,1,1
+sql,advanced,SQL,Difference between ON and WHERE in a join:,ON defines the join condition; WHERE filters rows after the join result is formed,They are always identical,ON filters after the join; WHERE defines the join,ON is only for LEFT JOIN,A,,1,1
+sql,advanced,SQL,A join cardinality issue occurs when:,A join returns no rows,A table has no primary key,A column has NULLs,"Join keys match multiple rows unexpectedly, multiplying output rows",D,,1,1
+sql,advanced,SQL,Can you generally select a column that is not in GROUP BY or an aggregate?,"Yes, always","Yes, but only with DISTINCT","Generally no, unless functionally dependent where the database allows it",Only in SELECT *,C,,1,1
+sql,advanced,SQL,Conditional aggregation often uses:,SUM(IF EXISTS condition),SUM(CASE WHEN condition THEN 1 ELSE 0 END),SUM(WHEN condition),COUNT(WHERE condition),B,,1,1
+sql,advanced,SQL,ROLLUP is:,A join type,A grouping extension that calculates subtotals and a grand total,A sorting option,A way to undo a transaction,B,,1,1
+sql,advanced,SQL,CUBE is:,A type of index,A 3D data type,A window function,A grouping extension that calculates aggregates for combinations of grouping columns,D,,1,1
+sql,advanced,SQL,A grouping set is:,A set of users,A set of indexes,A specified collection of grouping combinations for multiple aggregation levels in one query,A set of tables,C,,1,1
+sql,advanced,SQL,A correlated subquery:,References columns from the outer query,Runs independently of the outer query,Always returns one row,Cannot use WHERE,A,,1,1
+sql,advanced,SQL,A derived table is:,A subquery used as a table source in the FROM clause,A table with no rows,A table created by DROP,A temporary file,A,,1,1
+sql,advanced,SQL,A recursive CTE:,Runs only once,Is another name for a view,References itself to process hierarchical or iterative data,Can never be used in queries,C,,1,1
+sql,advanced,SQL,A CTE differs from a temporary table because:,A CTE can only be used in INSERT,A CTE is scoped to a statement; a temp table lasts for its session or transaction scope,They are identical,A CTE is stored permanently; a temp table is not,B,,1,1
+sql,advanced,SQL,Difference between IN and EXISTS:,EXISTS works only for numbers,They are identical in all cases,IN tests for rows; EXISTS tests for sets,IN tests membership in a set; EXISTS tests for matching rows,D,,1,1
+sql,advanced,SQL,A window function:,Creates a view,Collapses rows into groups,Opens a new query window,Calculates values across related rows without collapsing them into one row,D,,1,1
+sql,advanced,SQL,ROW_NUMBER() does what?,Counts total rows in a table,Assigns a unique sequential number to rows within a partition,Assigns the same number to ties,Returns the row size,B,,1,1
+sql,advanced,SQL,Difference between RANK() and DENSE_RANK():,DENSE_RANK leaves gaps; RANK does not,RANK ignores ties,RANK leaves gaps after ties; DENSE_RANK does not,Both leave gaps,C,,1,1
+sql,advanced,SQL,PARTITION BY:,Divides rows into separate groups for window calculations,Splits a table physically,Filters rows,Sorts rows,A,,1,1
+sql,advanced,SQL,LAG() accesses:,The first row,A value from a preceding row,A value from a following row,The last row,B,,1,1
+sql,advanced,SQL,LEAD() accesses:,A random row,The first row only,A value from a following row,A value from a preceding row,C,,1,1
+sql,advanced,SQL,A running total commonly uses:,SUM(value) OVER (ORDER BY date),COUNT(value) OVER (),TOTAL(value) ORDER BY date,SUM(value) GROUP BY date,A,,1,1
+sql,advanced,SQL,How do you find the top three salaries per department?,Use GROUP BY with MAX,Use LIMIT 3 only,Use DISTINCT salary,Use ROW_NUMBER() or RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) and filter,D,,1,1
+sql,advanced,SQL,A window frame:,Is the same as a view,Specifies which rows around the current row participate in the calculation,Limits query output rows,Is a type of table,B,,1,1
+sql,advanced,SQL,GROUP BY vs window functions:,Window functions cannot use aggregates,They are identical,Window functions collapse rows; GROUP BY retains them,GROUP BY collapses rows; window functions retain individual rows,D,,1,1
+sql,advanced,SQL,Can a CTE be referenced multiple times in the same statement?,Only if recursive,Only in INSERT,"Yes, subject to database rules","No, only once",C,,1,1
+sql,advanced,SQL,A materialized view:,Stores the result of a query and can be refreshed,Is always identical to a normal view,Deletes source data,Cannot be queried,A,,1,1
+sql,advanced,SQL,A clustered index:,Determines or closely corresponds to how table data is organized,Cannot be unique,Is used only for text,Is always separate from table data,A,,1,1
+sql,advanced,SQL,A nonclustered index:,Defines the table's physical order,Is the same as a primary key,Is a separate structure that points to rows or keys,Cannot be created on text,C,,1,1
+sql,advanced,SQL,A composite index:,Ignores column order,"Contains two or more columns, with column order affecting efficiency",Contains only one column,Is created on views only,B,,1,1
+sql,advanced,SQL,A covering index:,Covers the whole table,Contains only the primary key,Hides data from users,"Contains all columns needed by a query, avoiding some table lookups",D,,1,1
+sql,advanced,SQL,An execution plan:,Shows how the database intends to execute a query,Records past queries only,Is a backup schedule,Lists database users,A,,1,1
+sql,advanced,SQL,Why might a query ignore an index?,Because indexes are corrupted always,Indexes are ignored by default,The optimizer may estimate a scan is cheaper or the predicate may not use the index effectively,Queries cannot use indexes,C,,1,1
+sql,advanced,SQL,A sargable predicate is:,A condition with NULL,A condition that can use an index efficiently,A condition that always scans the table,A condition using LIKE only,B,,1,1
+sql,advanced,SQL,Which can help improve a slow SQL query?,Drop all indexes,Use SELECT * everywhere,Remove all WHERE clauses,"Inspect the execution plan, add appropriate indexes, and select only needed columns",D,,1,1
+sql,advanced,SQL,Database normalization:,Organizes tables to reduce unwanted redundancy and update anomalies,Merges all tables into one,Increases redundancy,Removes all keys,A,,1,1
+sql,advanced,SQL,Denormalization:,Is the same as normalization,Intentionally adds redundancy to improve some read patterns,Removes all redundancy,Deletes tables,B,,1,1
+sql,advanced,SQL,A database statistics catalog:,Lists database users,Stores query results,Holds metadata used by the optimizer to estimate row counts and distributions,Stores backups,C,,1,1
+sql,advanced,SQL,A SAVEPOINT:,Saves the entire database,Commits a transaction,Creates a backup,Marks a point within a transaction for partial rollback,D,,1,1
+sql,advanced,SQL,Transaction isolation controls:,How users log in,How tables are stored,How indexes are built,How concurrent transactions observe each other's changes,D,,1,1
+sql,advanced,SQL,A dirty read is:,Reading another transaction's uncommitted data,Reading corrupted data,Reading deleted rows from backups,Reading NULL values,A,,1,1
+sql,advanced,SQL,A non-repeatable read:,Reading uncommitted data,Reading a row only once,Reading the same row twice and seeing a different committed value,Seeing extra rows in a range query,C,,1,1
+sql,advanced,SQL,A phantom read:,Reading a deleted table,Repeating a range query and seeing additional or missing rows,Seeing changed values in the same row,Reading uncommitted data,B,,1,1
+sql,advanced,SQL,A deadlock occurs when:,Transactions wait on resources held by each other,An index is missing,A query runs too slowly,A table is empty,A,,1,1
+sql,advanced,SQL,A table is in 1NF when:,It has no foreign keys,Every non-key attribute depends on the whole key,It has no transitive dependencies,Each column holds a single value from its domain with no repeating column groups,D,,1,1
+sql,advanced,SQL,A table is in 2NF when:,It has only one column,It is in 1NF and non-prime attributes depend on the whole candidate key,It is in 3NF,It has no primary key,B,,1,1
+sql,advanced,SQL,A table is in 3NF when:,It has no NULL values,It is in 1NF only,It is in 2NF and has no disallowed transitive dependency of non-prime attributes,It has no foreign keys,C,,1,1
+sql,advanced,SQL,A cursor in stored SQL programming:,Processes query-result rows individually,Is a mouse pointer,Creates a table,Processes all rows at once,A,,1,1
+sql,advanced,SQL,Which portable query finds the second-highest distinct salary?,SELECT salary FROM employees LIMIT 2;,SELECT MAX(salary) FROM employees WHERE salary > (SELECT MAX(salary) FROM employees);,SELECT MAX(salary) FROM employees WHERE salary < (SELECT MAX(salary) FROM employees);,SELECT MIN(salary) FROM employees;,C,,1,1
+sql,advanced,SQL,"Which query gives the number of orders per customer, including customers with zero orders?","SELECT c.id, COUNT(*) FROM orders o GROUP BY c.id;","SELECT c.id, SUM(o.id) FROM customers c GROUP BY c.id;","SELECT c.id, COUNT(o.id) FROM customers c INNER JOIN orders o ON o.customer_id = c.id GROUP BY c.id;","SELECT c.id, COUNT(o.id) FROM customers c LEFT JOIN orders o ON o.customer_id = c.id GROUP BY c.id;",D,,1,1
+sql,advanced,SQL,What is a safe approach to removing duplicate records?,Truncate the table,"Identify duplicates with GROUP BY or ROW_NUMBER(), back up data, define which row to keep, then delete within a transaction",Drop the table and recreate it blindly,Run DELETE without WHERE,B,,1,1
+sql,advanced,SQL,How do you retrieve the latest order for each customer?,Use MAX(order_id) without grouping,Use ORDER BY order_date LIMIT 1 only,Use DISTINCT customer_id,"Use ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY order_date DESC, id DESC) and select row number 1",D,,1,1
+sql,advanced,SQL,Which is an appropriate step when designing an e-commerce database?,Skip security and testing,Avoid primary keys,"Identify entities, define keys, normalize relationships, add constraints and indexes",Store everything in one table,C,,1,1
+sql,advanced,SQL,"What does SELECT * FROM t WHERE x NOT IN (1, NULL) return?",No rows,All rows,An error,Rows where x is not 1,A,,1,1
+sql,advanced,SQL,"For column x with values 1, NULL, 3, what do COUNT(*), COUNT(x), and SUM(x) return?","3, 2, NULL","3, 2, 4","3, 3, 4","2, 2, 4",B,,1,1
+sql,advanced,SQL,Why can adding WHERE right_table.col = 'x' to a LEFT JOIN make it behave like an INNER JOIN?,Rows with NULL on the right side are filtered out by the condition,The WHERE clause runs before the join,LEFT JOIN is always converted,The optimizer drops the join,A,,1,1
+sql,advanced,SQL,Joining orders to order_items and then using SUM(orders.total) can cause what problem?,Missing rows,A syntax error,Automatic deduplication,Inflated totals due to row multiplication,D,,1,1
+sql,advanced,SQL,"For salaries 100, 100, 90 ordered descending, what does RANK() give for 90?",2,4,3,1,C,,1,1
+sql,advanced,SQL,"For salaries 100, 100, 90 ordered descending, what does DENSE_RANK() give for 90?",1,2,3,4,B,,1,1
+sql,advanced,SQL,Why add a tie-breaker (like id) to ROW_NUMBER() ordering?,Because ROW_NUMBER requires two columns,To avoid NULLs,To make the query faster,To make the numbering deterministic when values tie,D,,1,1
+sql,advanced,SQL,"What does LAG(salary, 1) return for the first row of a partition?",The same row's salary,NULL,0,An error,B,,1,1
+sql,advanced,SQL,Where are window functions NOT allowed directly?,In the ORDER BY clause,In the SELECT list,In the WHERE clause,In a CTE,C,,1,1
+sql,advanced,SQL,Where should you filter on an aggregate such as COUNT(*) > 5?,HAVING,ON,WHERE,FROM,A,,1,1
+sql,advanced,SQL,Which is safer than NOT IN when the subquery may return NULL?,NOT DISTINCT,NOT EXISTS,NOT BETWEEN,NOT LIKE,B,,1,1
+sql,advanced,SQL,What are the two parts of a recursive CTE?,An anchor member and a recursive member combined with UNION ALL,Two independent CTEs,A SELECT and a DELETE,A view and an index,A,,1,1
+sql,advanced,SQL,"For an index on (last_name, first_name), which filter can use it best?",Both equally,WHERE first_name = 'Ravi' only,WHERE last_name = 'Rao',Neither,C,,1,1
+sql,advanced,SQL,Which predicate is sargable?,YEAR(order_date) = 2024,CAST(order_date AS CHAR) LIKE '2024%',"DATE_FORMAT(order_date, '%Y') = '2024'",order_date >= '2024-01-01' AND order_date < '2025-01-01',D,,1,1
+sql,advanced,SQL,Why does LIKE '%abc' usually fail to use a B-tree index well?,The index must be unique,It is case-insensitive,The leading wildcard prevents an index range seek,LIKE never uses indexes,C,,1,1
+sql,advanced,SQL,Which isolation level prevents dirty reads but allows non-repeatable reads?,READ COMMITTED,REPEATABLE READ,READ UNCOMMITTED,SERIALIZABLE,A,,1,1
+sql,advanced,SQL,Which isolation level allows dirty reads?,SERIALIZABLE,READ UNCOMMITTED,READ COMMITTED,REPEATABLE READ,B,,1,1
+sql,advanced,SQL,Which SQL-standard isolation level is the strictest?,READ UNCOMMITTED,READ COMMITTED,REPEATABLE READ,SERIALIZABLE,D,,1,1
+sql,advanced,SQL,How does a database usually resolve a deadlock?,It commits both transactions,It aborts one transaction as the victim,It deletes the locked rows,It waits forever,B,,1,1
+sql,advanced,SQL,What does the Atomicity property guarantee?,Queries are fast,Transactions run in parallel,Data is encrypted,A transaction is all-or-nothing,D,,1,1
+sql,advanced,SQL,What does the Durability property guarantee?,Committed changes survive crashes,Data is never deleted,Transactions never fail,Indexes are never needed,A,,1,1
+sql,advanced,SQL,Which situation violates 2NF?,A table has only one column,A table has no foreign key,A non-key column depends on only part of a composite key,A column contains NULL,C,,1,1
+sql,advanced,SQL,Which situation violates 3NF?,A table has an index,A non-key column depends on another non-key column (transitive dependency),A table has a composite key,A table has a default value,B,,1,1
+sql,advanced,SQL,BCNF requires that:,Every column is indexed,No column allows NULL,Every determinant is a candidate key,Every table has a foreign key,C,,1,1
+sql,advanced,SQL,What is a common cause of update anomalies?,Redundant data stored in multiple places,Using transactions,Too many indexes,Using views,A,,1,1
+sql,advanced,SQL,How does optimistic locking typically detect conflicts?,By using TRUNCATE,By disabling writes,By locking rows during reads,With a version or timestamp column checked at update time,D,,1,1
+sql,advanced,SQL,What does SELECT ... FOR UPDATE do?,Disables indexes,Locks the selected rows until the transaction ends,Creates a snapshot copy,Updates the selected rows automatically,B,,1,1
+sql,advanced,SQL,What is a typical use of a materialized view?,Encrypting a table,Replacing a primary key,Precomputing expensive aggregations for fast reads,Enforcing foreign keys,C,,1,1
+sql,advanced,SQL,What does a clustered index change about a table?,It makes all columns unique,It creates a copy of the table,It removes duplicates,Row storage order follows the index key,D,,1,1
+sql,advanced,SQL,Why can having many indexes slow down writes?,Each INSERT/UPDATE/DELETE must also maintain the indexes,Indexes disable transactions,Indexes duplicate the SQL code,Indexes lock the entire database,A,,1,1
+sql,advanced,SQL,What does index selectivity describe?,How old the index is,How well the index narrows down the rows,How large the index is,How many columns the index has,B,,1,1
+sql,advanced,SQL,Why is keyset pagination often better than OFFSET for deep pages?,It needs no index,It returns more columns,It disables sorting,It avoids scanning and skipping all previous rows,D,,1,1
+sql,advanced,SQL,Which window function approach finds the second-highest distinct salary?,DENSE_RANK() OVER (ORDER BY salary DESC) = 2,MIN(salary) OVER () = 2,COUNT(*) OVER () = 2,ROW_NUMBER() OVER (ORDER BY salary DESC) = 2,A,,1,1
+sql,advanced,SQL,How can ROW_NUMBER() help remove duplicate emails while keeping one row?,Order by email and delete row number 1,Use TRUNCATE on the table,"Partition by email, order by id, and delete rows with row number > 1",Count all rows and delete half,C,,1,1
+sql,advanced,SQL,What does HAVING AVG(salary) > (SELECT AVG(salary) FROM employees) return per department?,Departments whose average salary is above the company average,All departments,Employees paid above average,Departments with the lowest salary,A,,1,1
+sql,advanced,SQL,What does SELECT a FROM t1 EXCEPT SELECT a FROM t2 return when t2 is empty?,No rows,An error,All distinct values of a from t1,All rows from t2,C,,1,1
+sql,advanced,SQL,How do INTERSECT and EXCEPT compare NULLs?,They treat NULLs as unequal,They treat NULLs as equal (not distinct),They raise an error,They ignore rows with NULL,B,,1,1
+sql,advanced,SQL,Why does the input ' OR '1'='1 cause problems in a concatenated query?,It deletes the table,It encrypts the input,It speeds up the query,It makes the WHERE condition always true,D,,1,1
+sql,advanced,SQL,What is the main benefit of prepared statements?,They make tables smaller,They remove the need for indexes,They separate SQL code from data values,They disable transactions,C,,1,1
+sql,advanced,SQL,What does WITH GRANT OPTION allow?,The grantee can grant the same privilege to others,The grantee can drop the database,The privilege becomes read-only,The privilege expires immediately,A,,1,1
+sql,advanced,SQL,What can a BEFORE trigger do that an AFTER trigger cannot easily do?,Read committed data,Validate or modify values before the row is written,Create indexes,Run after commit,B,,1,1
+sql,advanced,SQL,Which technique calculates each row's percentage of the total?,amount / DISTINCT SUM(amount),amount HAVING SUM(amount),amount / COUNT(*) GROUP BY,amount / SUM(amount) OVER (),D,,1,1
+sql,advanced,SQL,What does NTILE(4) do?,Rounds a value to 4 digits,Returns the top 4 rows,Creates 4 partitions on disk,Divides ordered rows into 4 roughly equal buckets,D,,1,1
+sql,advanced,SQL,Which function compares a row's value with the previous row's value?,LAG(),LEAD(),NTILE(),COUNT(),A,,1,1
+sql,advanced,SQL,Which statement about a correlated subquery is true?,It cannot be used in WHERE,It runs once and never references the outer query,It is logically evaluated in the context of each outer row,It can only return one column,C,,1,1
+sql,advanced,SQL,Why can EXISTS be efficient?,It always scans the whole table,It can stop as soon as one matching row is found,It needs a GROUP BY,It sorts the result first,B,,1,1
+sql,advanced,SQL,"For a composite index on (a, b, c), which filter can use the index prefix?",WHERE b = 2 AND c = 3,None of these,WHERE a = 1 AND b = 2,WHERE c = 3,C,,1,1
+sql,advanced,SQL,When can a JOIN multiply the rows of the left table?,When one left row matches several right rows,Only with CROSS JOIN,Only with FULL OUTER JOIN,Never,A,,1,1
+sql,advanced,SQL,How can a FULL OUTER JOIN be emulated in MySQL?,CROSS JOIN EXCEPT INNER JOIN,LEFT JOIN UNION RIGHT JOIN,LEFT JOIN INTERSECT RIGHT JOIN,INNER JOIN UNION ALL CROSS JOIN,B,,1,1
+sql,advanced,SQL,What is a lost update?,A deleted row that is restored,A rolled-back savepoint,An index that is dropped,Two transactions overwrite each other's change without seeing it,D,,1,1
+python,easy,Python,Python is best described as which type of language?,"A high-level, general-purpose programming language",A markup language for web pages,A database query language,A low-level assembly language,A,,1,1
+python,easy,Python,Who created Python?,James Gosling,Dennis Ritchie,Guido van Rossum,Bjarne Stroustrup,C,,1,1
+python,easy,Python,Which of the following is a main feature of Python?,Mandatory semicolons at line end,Support for only one programming paradigm,Compulsory manual memory management,Readable syntax with dynamic typing,D,,1,1
+python,easy,Python,"In standard CPython, what happens to source code before execution?",It is converted to Java bytecode,It is compiled into bytecode and run by the Python virtual machine,It is converted directly to machine code by the OS,It is executed line by line with no intermediate form,B,,1,1
+python,easy,Python,A variable in Python is best described as:,A reserved keyword,A fixed memory address,A constant that cannot change,A name that refers to an object or value,D,,1,1
+python,easy,Python,Do you need to declare variable types in Python?,"No, the type is determined at runtime","Yes, always before use","Yes, but only for numbers",Only inside functions,A,,1,1
+python,easy,Python,Which of these is NOT a built-in Python data type?,bytearray,complex,array_list,frozenset,C,,1,1
+python,easy,Python,Which function is used to check the type of a variable?,checktype(),type(),typeof(),vartype(),B,,1,1
+python,easy,Python,What does dynamic typing mean in Python?,Types are checked only at compile time,Types must be declared in comments,A name can refer to objects of different types during execution,Variables can never change value,C,,1,1
+python,easy,Python,Which of the following is an immutable object in Python?,List,String,Dictionary,Set,B,,1,1
+python,easy,Python,Which of these is a Python keyword?,while,repeat,loop,foreach,A,,1,1
+python,easy,Python,An identifier in Python is:,A data type conversion function,A special comment,A built-in operator,"A name used for a variable, function, class, or other element",D,,1,1
+python,easy,Python,Which of the following is a valid Python identifier?,_total_1,1total,total-amount,class,A,,1,1
+python,easy,Python,What does indentation do in Python?,Declares variables,Imports modules,Defines code blocks,Adds comments,C,,1,1
+python,easy,Python,Which symbol starts a single-line comment in Python?,/*,//,-,#,D,,1,1
+python,easy,Python,What does the input() function return?,An integer,A string,A boolean,A float,B,,1,1
+python,easy,Python,Which function displays output on the screen?,echo(),display(),write(),print(),D,,1,1
+python,easy,Python,What does int('25') do?,Returns 25.0,Raises a SyntaxError,Converts the string '25' to the integer 25,Converts 25 to a string,C,,1,1
+python,easy,Python,What is the difference between == and is?,== checks value equality; is checks if both refer to the same object,Both are identical,== checks identity; is checks value,== is for strings; is is for numbers,A,,1,1
+python,easy,Python,What does None represent in Python?,An empty string,The absence of a value,A boolean False only,The number zero,B,,1,1
+python,easy,Python,Operators in Python are used to:,Handle exceptions,Define classes,Import modules,Perform operations on values,D,,1,1
+python,easy,Python,Which of these is the exponentiation operator?,^^,**,//,^,B,,1,1
+python,easy,Python,What is the difference between / and // in Python?,/ is true division; // is floor division,/ is modulo; // is power,/ is floor division; // is true division,Both give integer results,A,,1,1
+python,easy,Python,What is the result of 10 % 3?,0,3,1,3.33,C,,1,1
+python,easy,Python,What is the value of 2 ** 3?,6,8,5,9,B,,1,1
+python,easy,Python,Which of the following is a comparison operator?,&&,=,+=,!=,D,,1,1
+python,easy,Python,Which are the logical operators in Python?,"and, or, not","and, or, xor only","&&, ||, !","AND, OR, NOT only",A,,1,1
+python,easy,Python,Which is an assignment operator?,==,!=,+=,<>,C,,1,1
+python,easy,Python,Which operators test whether an item exists in a collection?,is and is not,exists and missing,has and hasnt,in and not in,D,,1,1
+python,easy,Python,Which operators are identity operators?,== and !=,and and or,is and is not,in and not in,C,,1,1
+python,easy,Python,What does an if statement do?,Executes a block when a condition is true,Defines a function,Handles exceptions,Repeats a block forever,A,,1,1
+python,easy,Python,When is an elif block checked?,Only when the if is true,When the preceding if/elif conditions were false,Only inside loops,"Always, before if",B,,1,1
+python,easy,Python,The match statement is available from which Python version?,3.10,3.6,2.7,3.5,A,,1,1
+python,easy,Python,A for loop is used to:,Import a package,Iterate over items in an iterable,Define a function,Declare variables,B,,1,1
+python,easy,Python,A while loop:,Runs only for lists,Runs exactly once,Repeats as long as its condition remains true,Runs only for ranges,C,,1,1
+python,easy,Python,"What does range(1, 4) produce?","1, 2, 3, 4","0, 1, 2, 3","2, 3, 4","1, 2, 3",D,,1,1
+python,easy,Python,What is the difference between break and continue?,Both exit the program,break exits the nearest loop; continue skips to the next iteration,Both restart the loop from the beginning,break skips the iteration; continue exits the loop,B,,1,1
+python,easy,Python,What does the pass statement do?,Returns None from a function,Exits the loop,Nothing; it is a placeholder,Skips to next iteration,C,,1,1
+python,easy,Python,What is a nested loop?,A loop with no body,A loop that never ends,A loop using recursion,A loop inside another loop,D,,1,1
+python,easy,Python,Which of the following is a falsy value in Python?,An empty list [],The string 'False',The number 1,A non-empty dictionary,A,,1,1
+python,easy,Python,A string in Python is:,An immutable sequence of Unicode characters,A numeric type,A fixed-size array,A mutable list of bytes,A,,1,1
+python,easy,Python,What does 'Python'[0] return?,An error,'P','n','y',B,,1,1
+python,easy,Python,"In negative indexing, what does -1 refer to?",The second element,The first element,An invalid index,The last element,D,,1,1
+python,easy,Python,What does 'Python'[1:4] return?,'Pyt','ython','yth','ytho',C,,1,1
+python,easy,Python,How do you reverse a string text?,text[-1:0],reverse(text),text.reverse(),text[::-1],D,,1,1
+python,easy,Python,What does len() return?,The last index,The number of elements or characters,The memory size in bytes,The type of object,B,,1,1
+python,easy,Python,What is the difference between lower() and upper()?,lower() makes letters lowercase; upper() makes them uppercase,They are identical,lower() removes spaces; upper() adds spaces,lower() sorts; upper() reverses,A,,1,1
+python,easy,Python,"By default, strip() removes:",All digits,Only the last character,Surrounding whitespace,All vowels,C,,1,1
+python,easy,Python,What do split() and join() do?,Both remove whitespace,split() joins strings; join() splits them,split() makes a list from a string; join() combines strings into one,Both only work on lists,C,,1,1
+python,easy,Python,What does replace() return?,A list of replaced characters,A new string with matching occurrences replaced,The same string modified in place,The number of replacements,B,,1,1
+python,easy,Python,What are f-strings used for?,Creating float values,Formatting files,Defining functions,Embedding expressions inside string literals,D,,1,1
+python,easy,Python,What does string immutability mean?,A string cannot be modified in place,A string must be constant text,A string cannot be printed,A string cannot be indexed,A,,1,1
+python,easy,Python,What does find() return if the substring is absent?,None,ValueError,-1,0,C,,1,1
+python,easy,Python,What is the difference between find() and index()?,Both raise errors,find() raises an error; index() returns -1,Both return None,find() returns -1 if absent; index() raises ValueError,D,,1,1
+python,easy,Python,Which method checks if a string contains only digits?,isdigit(),isnumber_only(),isint(),digits(),A,,1,1
+python,easy,Python,A list in Python is:,A key-value mapping,"An ordered, mutable collection that allows duplicates",An immutable ordered collection,An unordered collection of unique items,B,,1,1
+python,easy,Python,Which method adds one item to the end of a list?,add(),append(),push(),extend_one(),B,,1,1
+python,easy,Python,What is the difference between append() and extend()?,They are identical,append() adds many items; extend() adds one,append() adds one object; extend() adds each item of an iterable,extend() works only on tuples,C,,1,1
+python,easy,Python,What does insert() do for a list?,Adds an item to the end,Removes an item at an index,Sorts the list,Inserts an item at a specified index,D,,1,1
+python,easy,Python,What does remove(value) do?,Removes the first matching value,Removes all matching values,Removes the item at an index and returns it,Removes the last item,A,,1,1
+python,easy,Python,Which list method sorts in place?,order(),sort(),sorted(),arrange(),B,,1,1
+python,easy,Python,What does items[1:4] represent?,An error,Items from 1 to 4 inclusive,A slice of the list from index 1 up to 3,Items at index 1 and 4 only,C,,1,1
+python,easy,Python,What does [x*x for x in range(5)] produce?,"[1, 2, 3, 4]","[0, 1, 2, 3, 4]","[1, 4, 9, 16, 25]","[0, 1, 4, 9, 16]",D,,1,1
+python,easy,Python,A nested list is:,A list containing other lists,A list sorted automatically,A list inside a tuple only,A list with only one item,A,,1,1
+python,easy,Python,A tuple is:,A key-value pair store,"An ordered, mutable collection","An ordered, immutable collection",An unordered collection of unique items,C,,1,1
+python,easy,Python,Which statement about lists and tuples is correct?,Tuples are mutable; lists are immutable,Both are unordered,Both are immutable,Lists are mutable; tuples are immutable,D,,1,1
+python,easy,Python,How do you create a one-item tuple?,"single = (10,)",single = (10),single = [10],single = {10},A,,1,1
+python,easy,Python,"What does x, y = (10, 20) demonstrate?",List comprehension,Tuple unpacking,Tuple concatenation,Tuple slicing,B,,1,1
+python,easy,Python,A set in Python is:,A key-value store,An unordered collection of unique hashable elements,An immutable sequence,An ordered collection with duplicates,B,,1,1
+python,easy,Python,How can you remove duplicates from a list while preserving order?,values.unique(),sorted(values),set(values),list(dict.fromkeys(values)),D,,1,1
+python,easy,Python,Which operator gives the intersection of two sets?,^,|,&,-,C,,1,1
+python,easy,Python,A dictionary stores:,Key-value pairs,Only values in order,Only unique keys with no values,Rows and columns,A,,1,1
+python,easy,Python,Which is a safe way to access a dictionary value without error for a missing key?,student.find('name'),student.value('name'),student.get('name'),student['name'],C,,1,1
+python,easy,Python,What does dictionary[key] do if the key is missing?,Returns 0,Raises KeyError,Creates the key,Returns None,B,,1,1
+python,easy,Python,How do you add or update a dictionary value?,"student.add('age', 23)",student.push(23),"student.append('age', 23)",student['age'] = 23,D,,1,1
+python,easy,Python,Which method iterates through key-value pairs of a dictionary?,items(),entries(),iter_all(),pairs(),A,,1,1
+python,easy,Python,What does keys() return?,A dynamic view of the dictionary's keys,A tuple of values,A sorted list of keys,A copy of the dictionary,A,,1,1
+python,easy,Python,What does values() return?,A list of keys,A dynamic view of the dictionary's values,A string of values,A set of items,B,,1,1
+python,easy,Python,Can a dictionary have duplicate keys?,"Yes, all values are kept",No; it raises an error,"Yes, but only strings",No; assigning an existing key updates its value,D,,1,1
+python,easy,Python,"What does {x: x*x for x in range(1, 4)} create?","[1, 4, 9]","{0: 0, 1: 1, 2: 4}","{1: 1, 2: 4, 3: 9}","{1, 4, 9}",C,,1,1
+python,easy,Python,What is a function in Python?,A type of loop,A reusable block of code that performs a task,A module import,A built-in variable,B,,1,1
+python,easy,Python,Which keyword defines a function?,define,func,function,def,D,,1,1
+python,easy,Python,Parameter vs argument: which is correct?,A parameter is in the definition; an argument is the value passed in a call,They mean exactly the same in Python,Parameters are only for classes,A parameter is the value passed; an argument is in the definition,A,,1,1
+python,easy,Python,What does return do?,Restarts the function,Declares a global variable,Ends the function call and sends a result back,Prints a value,C,,1,1
+python,easy,Python,What does a function without a return statement return?,0,An empty string,None,It raises an error,C,,1,1
+python,easy,Python,What are default arguments?,Arguments passed by name only,Values used when callers omit those parameters,Arguments that are always required,Arguments that cannot be changed,B,,1,1
+python,easy,Python,What are keyword arguments?,Arguments that are Python keywords,Arguments stored in a list,Arguments passed in order only,"Arguments passed by parameter name, like greet(name='Ravi')",D,,1,1
+python,easy,Python,What are positional arguments?,Arguments passed according to the order of parameters,Arguments inside a dictionary,Arguments passed by name,Arguments with default values,A,,1,1
+python,easy,Python,What does *args do?,Unpacks a dictionary,Collects extra positional arguments into a tuple,Multiplies arguments,Collects extra keyword arguments into a dict,B,,1,1
+python,easy,Python,What does **kwargs do?,Collects extra keyword arguments into a dictionary,Collects extra positional arguments into a tuple,Defines a keyword-only function,Squares the arguments,A,,1,1
+python,easy,Python,A lambda function is:,A function with no parameters,A function defined in a class,A recursive function,A small anonymous function with one expression,D,,1,1
+python,easy,Python,A module in Python is:,A type of loop,A class with methods,A Python file containing definitions and statements that can be imported,A built-in function,C,,1,1
+python,easy,Python,What does import do?,Makes names from another module or package available,Deletes a module,Runs a shell command,Creates a new file,A,,1,1
+python,easy,Python,What is pip?,A testing framework,A package installer for Python packages,A web server,A code editor,B,,1,1
+python,easy,Python,What is requirements.txt commonly used for?,Storing user passwords,Defining classes,Listing project package requirements and version constraints,Writing documentation,C,,1,1
+python,easy,Python,What is the output logic for checking even/odd using number % 2 == 0?,"If quotient is 0, the number is even","If remainder is 1, the number is even","If remainder is 0, the number is odd","If remainder is 0, the number is even",D,,1,1
+python,easy,Python,"What does print(max(10, 25, 15)) output?",15,50,25,10,C,,1,1
+python,easy,Python,What does int(str(12345)[::-1]) return?,54321,5,'54321',12345,A,,1,1
+python,easy,Python,What is Django?,A testing tool,A high-level Python web framework,A database system,A JavaScript library,B,,1,1
+python,easy,Python,Authentication vs authorization:,They mean the same thing,Authentication is only for APIs,Authentication determines permissions; authorization verifies identity,Authentication verifies who you are; authorization determines what you can do,D,,1,1
+python,intermediate,Python,What is recursion?,"A function calling itself, needing a base case to stop",Calling a function in another file,A loop inside a loop,A function returning a function,A,,1,1
+python,intermediate,Python,A docstring is:,A comment starting with #,A variable name rule,"A string literal documenting a module, class, or function",A type of f-string,C,,1,1
+python,intermediate,Python,What does map() do?,Creates a dictionary,Sorts an iterable,Filters items by a condition,Applies a function to each item of an iterable and returns an iterator,D,,1,1
+python,intermediate,Python,What does filter() do?,Sorts items,Returns an iterator of items for which a predicate is true,Applies a function to every item,Removes duplicates,B,,1,1
+python,intermediate,Python,What is OOP?,Organizing code around objects that combine data and behavior,Writing code only with functions,A database design method,A way to compile Python faster,A,,1,1
+python,intermediate,Python,A class defines:,Only variables,A loop structure,Attributes and methods that its instances can have,Only functions,C,,1,1
+python,intermediate,Python,An object is:,A module,A blueprint for a class,A built-in function,An instance of a class,D,,1,1
+python,intermediate,Python,What does self conventionally refer to?,The class itself,The current instance in an instance method,The module,The parent class,B,,1,1
+python,intermediate,Python,An instance variable is:,A variable shared by all instances,A variable inside a static method only,A global variable,"Data associated with a particular object, commonly assigned via self",D,,1,1
+python,intermediate,Python,A class variable is:,A local variable,A variable defined only in __init__,A variable defined on the class and shared through the class,A variable that cannot be read,C,,1,1
+python,intermediate,Python,Inheritance allows:,A class to derive attributes and methods from another class,A class to be deleted,Modules to be imported,Objects to be copied,A,,1,1
+python,intermediate,Python,Which is NOT a common type of inheritance?,Single,Circular,Multilevel,Hierarchical,B,,1,1
+python,intermediate,Python,Multiple inheritance means:,A class has many instances,A class has many methods,A class inherits from more than one base class,A class is inherited by many classes,C,,1,1
+python,intermediate,Python,Polymorphism means:,A variable changes type,A class has many attributes,A function has many return values,A common interface works with different object types,D,,1,1
+python,intermediate,Python,Method overriding is when:,A subclass provides its own implementation of an inherited method,A method is deleted,Two methods in a class share a name with different parameters,A class calls its own method,A,,1,1
+python,intermediate,Python,Encapsulation refers to:,Hiding the program from users,Grouping data and behavior and controlling access to object state,Creating many objects,Inheriting from many classes,B,,1,1
+python,intermediate,Python,An exception is:,A syntax mistake found before running,A type of loop,A warning that is always ignored,An event/object that interrupts normal execution unless handled,D,,1,1
+python,intermediate,Python,Exception handling in Python uses:,"try, except, else, and finally","begin, catch, end","check, handle, finish","if, elif, else",A,,1,1
+python,intermediate,Python,What is the purpose of try and except?,try declares variables; except deletes them,try defines a function; except imports a module,try holds code that may raise an exception; except handles it,try repeats code; except stops it,C,,1,1
+python,intermediate,Python,The finally block:,Runs only when no exception occurs,Normally runs whether or not an exception occurs,Runs only when an exception occurs,Never runs,B,,1,1
+python,intermediate,Python,What does raise do?,Ignores an exception,Prints an error message only,Explicitly raises an exception,Handles an exception,C,,1,1
+python,intermediate,Python,A file in Python is used to:,Define classes,Store data persistently outside the running program,Store variables in RAM only,Compile code,B,,1,1
+python,intermediate,Python,Which function opens a file?,read_file(),file(),load(),open(),D,,1,1
+python,intermediate,Python,Why use with when working with files?,It ensures the file is closed when the block exits,It encrypts the file,It makes the file faster,It makes the file read-only,A,,1,1
+python,intermediate,Python,"In file modes, what does 'a' do?",Opens in binary mode,Appends to the file,Reads the file,Truncates and writes,B,,1,1
+python,intermediate,Python,What does readlines() return?,The whole file as a string,One line as a string,The remaining lines as a list,The number of lines,C,,1,1
+python,intermediate,Python,How do you write data to a file?,Open in w or a mode and call write() inside a with block,Open in r mode and call write(),Use file.save(),Use print_file(),A,,1,1
+python,intermediate,Python,A virtual environment:,Speeds up Python,Is a cloud server,Is a virtual machine running Windows,Isolates a project's Python packages from other projects,D,,1,1
+python,intermediate,Python,An iterable is:,"An object that can produce an iterator, such as a list or string",Only a dictionary,Only a generator,A function that loops,A,,1,1
+python,intermediate,Python,The Python Standard Library consists of:,Packages installed with pip,"Modules included with Python, such as os, sys, json, and math",Only third-party packages,Only built-in functions,B,,1,1
+python,intermediate,Python,The os module is used for:,Object-oriented syntax,Output streaming,Operating-system-related functionality like environment variables and directories,Optimizing speed,C,,1,1
+python,intermediate,Python,pathlib provides:,A way to compile paths,A web routing system,A database path manager,An object-oriented way to work with filesystem paths,D,,1,1
+python,intermediate,Python,The datetime module provides:,A database connector,"Classes for dates, times, intervals, and time zones",A file timestamp remover,A calendar GUI,B,,1,1
+python,intermediate,Python,The json module:,Stores data in databases,Converts Python to XML only,Converts between JSON text and compatible Python objects,Compiles JSON schemas,C,,1,1
+python,intermediate,Python,Which module provides regular expressions in Python?,re,pattern,regexp,regex_std,A,,1,1
+python,intermediate,Python,The requests library is used for:,Building GUIs,Parsing HTML only,Running unit tests,Making HTTP requests,D,,1,1
+python,intermediate,Python,NumPy is mainly used for:,Text parsing only,Numerical computing and multidimensional arrays,Database access,Web development,B,,1,1
+python,intermediate,Python,Pandas is mainly used for:,Web scraping only,Operating system tasks,Data manipulation and analysis with DataFrame and Series,Creating GUIs,C,,1,1
+python,intermediate,Python,Matplotlib is used for:,"Creating charts, plots, and visualizations",Machine learning training,Web routing,Reading Excel files only,A,,1,1
+python,intermediate,Python,Unit testing means:,Testing the network speed,Testing the whole application together,Testing only the UI,Testing small individual parts of a program independently,D,,1,1
+python,intermediate,Python,unittest is:,Python's built-in testing framework,A package manager,A code formatter,A third-party GUI toolkit,A,,1,1
+python,intermediate,Python,pytest is:,Python's built-in profiler,A type checker only,A web framework,A popular third-party testing framework with fixtures and parameterization,D,,1,1
+python,intermediate,Python,Which is a built-in Python debugging tool?,pydebug_tool,pytrace,pdb,dbgpy,C,,1,1
+python,intermediate,Python,Which can Python use to connect to MySQL?,pytest,mysql-connector-python or PyMySQL,numpy,matplotlib,B,,1,1
+python,intermediate,Python,A database transaction is:,A table relationship,A single SELECT query,A database backup,A group of operations treated as a unit that can be committed or rolled back,D,,1,1
+python,intermediate,Python,An ORM:,Compiles SQL to machine code,Optimizes raw memory,Maps database tables and rows to programming-language objects,Is a type of database,C,,1,1
+python,intermediate,Python,What does count_vowels('Python Programming') return?,6,4,3,5,B,,1,1
+python,intermediate,Python,Which statement about Django and Flask is correct?,Django is full-featured; Flask is lightweight and flexible,Both are identical,Flask is full-featured; Django is lightweight,Django is for mobile apps only,A,,1,1
+python,intermediate,Python,A Django model is:,A middleware component,An HTML template,A Python class describing data that the ORM maps to a database table,A URL pattern,C,,1,1
+python,intermediate,Python,Which commands apply Django migrations?,pip install migrate,python manage.py makemigrations and python manage.py migrate,python manage.py runserver and shell,python manage.py createmodel and apply,B,,1,1
+python,intermediate,Python,"What is the output of print(len([1, [2, 3], 4]))?",3,5,4,2,A,,1,1
+python,intermediate,Python,What is the output of print('a' * 3 + 'b')?,ab3,Error,a3b,aaab,D,,1,1
+python,intermediate,Python,"What is the output of print(10 // 3, 10 % 3)?",3 1,1 3,3 3,3.33 1,A,,1,1
+python,intermediate,Python,What is the output of print(type(3 / 1))?,<class 'int'>,<class 'float'>,<class 'complex'>,<class 'str'>,B,,1,1
+python,intermediate,Python,"After nums = [1, 2, 3]; nums.append([4, 5]), what is len(nums)?",6,3,5,4,D,,1,1
+python,intermediate,Python,"What happens when you run t = (1, 2, 3); t[0] = 9?",ValueError,"No error, nothing changes",TypeError,"t becomes (9, 2, 3)",C,,1,1
+python,intermediate,Python,What is the output of print('hello'[1:-1])?,ell,ello,he,hell,A,,1,1
+python,intermediate,Python,"What is the output of print(list(range(10, 0, -3)))?","[10, 7, 4, 1, -2]","[10, 7, 4]","[9, 6, 3]","[10, 7, 4, 1]",D,,1,1
+python,intermediate,Python,"After d = {'a': 1}; d.setdefault('b', 2), what is d?",KeyError is raised,"{'a': 1, 'b': 2}",{'b': 2},{'a': 1},B,,1,1
+python,intermediate,Python,What is the output of print(bool(''))?,Error,None,False,True,C,,1,1
+python,intermediate,Python,What is the output of print(' hi '.strip().title())?,HI,hi,Hi,hi,C,,1,1
+python,intermediate,Python,What is the output of print(sorted('banana'))?,"['b', 'a', 'n', 'a', 'n', 'a']","['a', 'b', 'n']",aaabnn,"['a', 'a', 'a', 'b', 'n', 'n']",D,,1,1
+python,intermediate,Python,What is the output of print(sum([x for x in range(5) if x % 2 == 0]))?,2,6,10,4,B,,1,1
+python,intermediate,Python,"After a = [1, 2, 3]; b = a; b.append(4), what is a?","[1, 2, 3, 4]","[1, 2, 3]",Error,[4],A,,1,1
+python,intermediate,Python,"What is the output of print(len({1, 2, 2, 3}))?",3,Error,2,4,A,,1,1
+python,intermediate,Python,"Given def f(a, b=2): return a + b, what does print(f(3)) output?",3,TypeError,6,5,D,,1,1
+python,intermediate,Python,"Given def f(*args): return len(args), what does f(1, 2, 3) return?",1,3,TypeError,6,B,,1,1
+python,intermediate,Python,Which exception does int('abc') raise?,KeyError,NameError,ValueError,TypeError,C,,1,1
+python,intermediate,Python,"Which exception does [1, 2][5] raise?",ValueError,IndexError,KeyError,TypeError,B,,1,1
+python,intermediate,Python,Which exception does {'a': 1}['b'] raise?,IndexError,AttributeError,KeyError,ValueError,C,,1,1
+python,intermediate,Python,Which exception does 1 / 0 raise?,ZeroDivisionError,OverflowError,ArithmeticValueError,ValueError,A,,1,1
+python,intermediate,Python,Which exception is raised when you use a variable that was never defined?,AttributeError,ValueError,KeyError,NameError,D,,1,1
+python,intermediate,Python,"What does list(zip([1, 2], ['a', 'b'])) return?","[(1, 'a'), (2, 'b')]","[1, 'a', 2, 'b']","{1: 'a', 2: 'b'}","[[1, 2], ['a', 'b']]",A,,1,1
+python,intermediate,Python,"What does list(enumerate(['x', 'y'])) return?","[0, 1]","[(1, 'x'), (2, 'y')]","[(0, 'x'), (1, 'y')]","[('x', 0), ('y', 1)]",C,,1,1
+python,intermediate,Python,"What does dict(zip(['a', 'b'], [1, 2])) create?","{1: 'a', 2: 'b'}","{'a': 1, 'b': 2}",Error,"[('a', 1), ('b', 2)]",B,,1,1
+python,intermediate,Python,"What is the output of print(any([0, '', 3]))?",3,False,Error,True,D,,1,1
+python,intermediate,Python,"What is the output of print(all([1, 2, 0]))?",Error,False,True,0,B,,1,1
+python,intermediate,Python,"What is the output of print(max('apple', 'banana'))?",apple,Error,banana,b,C,,1,1
+python,intermediate,Python,What is the output of print(round(3.7))?,4.0,3,3.7,4,D,,1,1
+python,intermediate,Python,"What is the output of print('a,b,c'.split(','))?","['a', 'b', 'c']","['a,b,c']",a b c,"('a', 'b', 'c')",A,,1,1
+python,intermediate,Python,"What is the output of print('-'.join(['x', 'y', 'z']))?",xyz,x-y-z,['x-y-z'],-x-y-z,B,,1,1
+python,intermediate,Python,What is the output of print('hello'.count('l'))?,0,3,1,2,D,,1,1
+python,intermediate,Python,What is the output of print('Hello World'.swapcase())?,HELLO WORLD,hello world,hELLO wORLD,Hello World,C,,1,1
+python,intermediate,Python,What is the output of print('abc'.startswith('ab'))?,True,False,ab,None,A,,1,1
+python,intermediate,Python,"What is the output of print([1, 2, 3][::-1])?",Error,"[1, 2, 3]","[3, 2, 1]","[2, 3]",C,,1,1
+python,intermediate,Python,What is the output of print([i * 2 for i in range(3)])?,"[0, 2, 4]","[2, 4, 6]","[1, 2, 3]","[0, 1, 2]",A,,1,1
+python,intermediate,Python,"What is the output of print(list(map(lambda x: x + 1, [1, 2, 3])))?","[1, 3, 5]","[0, 1, 2]","[1, 2, 3]","[2, 3, 4]",D,,1,1
+python,intermediate,Python,"What is the output of print(list(filter(lambda x: x > 1, [1, 2, 3])))?",[3],"[2, 3]","[1, 2, 3]",[1],B,,1,1
+python,intermediate,Python,Which file mode opens a file for reading and writing without truncating it?,x,a,w+,r+,D,,1,1
+python,intermediate,Python,"What happens when you open an existing file with open('f.txt', 'w')?",An error is raised,New text is appended,Its existing contents are erased,It is opened read-only,C,,1,1
+python,intermediate,Python,Which statement imports only the sqrt function from the math module?,from math import sqrt,import math.sqrt only,import sqrt from math,using math sqrt,A,,1,1
+python,intermediate,Python,When does the else block of a try statement run?,Only when an exception occurred,Only when no exception occurred in try,Never,Always,B,,1,1
+python,intermediate,Python,What does the __str__ method define?,How an object is created,How objects are compared,How an object is deleted,The readable string shown by print(),D,,1,1
+python,intermediate,Python,"In a method decorated with @staticmethod, the first parameter is:",Not automatically self or cls,Always cls,Always the module,Always self,A,,1,1
+python,intermediate,Python,"What does isinstance(5, int) return?",5,True,Error,False,B,,1,1
+python,intermediate,Python,What is required of a dictionary key?,It must be an integer,It must be a string,It must be hashable,It must be unique and mutable,C,,1,1
+python,intermediate,Python,What is the output of print(0.1 + 0.2 == 0.3)?,True,None,False,Error,C,,1,1
+python,intermediate,Python,What is the output of print(type(None))?,<class 'null'>,<class 'None'>,None,<class 'NoneType'>,D,,1,1
+python,intermediate,Python,What is the output of print(10 / 2)?,5.0,5,2,5.5,A,,1,1
+python,intermediate,Python,What is the output of print('Python'[-2:])?,th,on,Py,n,B,,1,1
+python,advanced,Python,What does LEGB stand for in Python scope?,"Library, Enclosing, Global, Block","Local, External, General, Built-in","Local, Enclosing, Global, Built-in","Loop, Exception, Global, Base",C,,1,1
+python,advanced,Python,What does the global keyword allow?,A function to rebind a module-level name,A variable to be deleted,Importing a module globally,A function to be called from anywhere,A,,1,1
+python,advanced,Python,What does the nonlocal keyword allow?,A global variable to be created,A variable to be constant,A variable to be shared between modules,A nested function to rebind a variable in the nearest enclosing function,D,,1,1
+python,advanced,Python,A higher-order function is one that:,Always uses recursion,Accepts a function as an argument or returns a function,Has more than 10 parameters,Is defined inside a class,B,,1,1
+python,advanced,Python,What is a key difference between map() and a list comprehension in Python 3?,map() cannot transform values,List comprehensions cannot use functions,A list comprehension creates a list; map() returns an iterator,map() creates a list; a list comprehension returns an iterator,C,,1,1
+python,advanced,Python,Which method initializes a newly created instance?,__new__(),__start__(),__create__(),__init__(),D,,1,1
+python,advanced,Python,Does Python support traditional signature-based method overloading like Java?,"No; similar behavior uses defaults, *args, or singledispatch","Yes, fully",Only in Python 2,"Yes, but only for static methods",A,,1,1
+python,advanced,Python,What does a leading underscore in an attribute name conventionally mean?,It is a constant,It is intended for internal use; privacy is not enforced,It is a built-in attribute,It is strictly private and inaccessible,B,,1,1
+python,advanced,Python,What is name mangling?,Renaming variables to uppercase,Removing unused names,Encrypting variable names,Transforming names that start with two underscores to avoid subclass clashes,D,,1,1
+python,advanced,Python,Abstraction means:,Making everything public,Exposing essential behavior while hiding implementation details,Removing methods,Copying objects,B,,1,1
+python,advanced,Python,What does super() do?,Accesses methods in the next class in the method resolution order,Creates a new superclass,Makes a class final,Deletes the parent class,A,,1,1
+python,advanced,Python,Which method type receives cls and uses @classmethod?,Instance method,Abstract method,Class method,Static method,C,,1,1
+python,advanced,Python,Magic (dunder) methods are:,Methods that run only at import,Methods that are hidden from users,Special methods like __init__ and __str__ that integrate objects with Python operations,Methods only for exceptions,C,,1,1
+python,advanced,Python,How do you create a custom exception?,Define a class inheriting from Exception,Import it from builtins,Define a function named Exception,Use the custom keyword,A,,1,1
+python,advanced,Python,A syntax error differs from a runtime exception because:,Both occur only at runtime,Runtime exceptions occur only when parsing,A syntax error occurs only while running,A syntax error violates Python grammar; a runtime exception occurs during execution,D,,1,1
+python,advanced,Python,A package organizes:,Only functions,Related modules under a namespace,Only classes,Only variables,B,,1,1
+python,advanced,Python,What does if __name__ == '__main__': do?,Defines the main class,Checks the module's version,Runs a block when the module is imported,"Runs a block when the module is executed directly, not imported",D,,1,1
+python,advanced,Python,An iterator is an object that:,Stores all values in a list,Implements __iter__() and __next__() and produces values one at a time,Is always a list,Cannot be used in loops,B,,1,1
+python,advanced,Python,A generator:,Is a type of class,Generates random numbers only,"Produces values lazily, usually using yield",Creates all values at once in memory,C,,1,1
+python,advanced,Python,Difference between yield and return?,yield produces a value while preserving generator state; return finishes the function,They are identical,yield finishes the function; return preserves state,yield works only in classes,A,,1,1
+python,advanced,Python,A decorator is:,A callable that wraps or modifies a function or class,A type of comment,A loop construct,A module importer,A,,1,1
+python,advanced,Python,A closure is:,A class with private variables,A function that closes a file,A function with no return,A function that retains access to enclosing-scope variables after the outer function returns,D,,1,1
+python,advanced,Python,A context manager:,Controls file permissions,"Manages setup and cleanup around a block, commonly used with with",Manages imports,Manages memory allocation,B,,1,1
+python,advanced,Python,Which special methods are used by context managers?,__open__() and __close__(),__begin__() and __finish__(),__enter__() and __exit__(),__start__() and __end__(),C,,1,1
+python,advanced,Python,A shallow copy is:,A copy that is read-only,A completely independent recursive copy,A reference to the same object,A new outer object that keeps references to the original's nested elements,D,,1,1
+python,advanced,Python,A deep copy is:,A copy of keys only,"A recursive copy of nested objects, commonly made with copy.deepcopy()",A copy of only the outer object,A reference to the same object,B,,1,1
+python,advanced,Python,Which statement about copy.copy() and copy.deepcopy() is correct?,copy() is deep; deepcopy() is shallow,Both are shallow,copy() is shallow; deepcopy() recursively copies nested objects,Both are deep,C,,1,1
+python,advanced,Python,What is the GIL in CPython?,A lock that generally lets only one thread execute Python bytecode at a time,A global import list,A graphical interface library,A garbage collection setting,A,,1,1
+python,advanced,Python,Multithreading is:,"Using multiple threads within one process, useful for overlapping I/O",Running code in a loop,Running code on GPUs,Using multiple processes for parallelism,A,,1,1
+python,advanced,Python,Multiprocessing is:,Running one process at a time,Using multiple threads in one process only,A type of recursion,Using separate processes that can run in parallel across CPU cores,D,,1,1
+python,advanced,Python,Asynchronous programming in Python often uses:,"try, except, and finally","asyncio, async, and await","thread, lock, and sleep","yield, return, and pass",B,,1,1
+python,advanced,Python,How does asynchronous execution differ from synchronous execution?,It is always slower,Tasks run in reverse order,Waiting tasks can be suspended so other work can proceed,Tasks always run on multiple CPUs,C,,1,1
+python,advanced,Python,What is the Python virtual machine?,A package manager,A virtualization tool like VirtualBox,A code editor,The runtime component that executes Python bytecode,D,,1,1
+python,advanced,Python,How does CPython primarily manage memory reclamation?,Manual free() calls,Reference counting plus a cyclic garbage collector,It never reclaims memory,Only a mark-and-sweep collector,B,,1,1
+python,advanced,Python,A memory leak is:,A program using no memory,Memory deleted too early,"Memory staying occupied unnecessarily, often due to retained references",A crash caused by syntax errors,C,,1,1
+python,advanced,Python,Big O notation describes:,How algorithm resource needs grow with input size,The number of lines of code,The memory address of variables,The exact execution time in seconds,A,,1,1
+python,advanced,Python,Mocking in tests means:,Replacing a dependency with a controlled substitute,Deleting failing tests,Running tests twice,Ignoring test failures,A,,1,1
+python,advanced,Python,A database cursor is:,A mouse pointer in a GUI,An object used to execute statements and fetch results through a connection,A type of index,A database backup,B,,1,1
+python,advanced,Python,A parameterized SQL query:,Builds SQL using string concatenation,Only works with SELECT,Runs faster without a database,"Passes values separately from SQL text, helping prevent SQL injection",D,,1,1
+python,advanced,Python,"In the factorial function with a for loop starting at range(2, n+1), what is factorial(5)?",60,24,120,720,C,,1,1
+python,advanced,Python,"What does fibonacci(7) return for the standard sequence starting 0, 1?","[0, 1, 1, 2, 3, 5, 8]","[0, 1, 2, 3, 4, 5, 6]","[1, 1, 2, 3, 5, 8, 13]","[0, 1, 1, 2, 3, 5, 8, 13]",A,,1,1
+python,advanced,Python,Which expression correctly checks if a lowercase string text is a palindrome?,text == text.reverse(),text == text[::-1],text[0] == text[-1] only,text is text[::-1],B,,1,1
+python,advanced,Python,"For numbers = [1, 2, 3, 2, 4, 1, 5], the sorted duplicates are:","[1, 2, 3]","[2, 4]","[1, 2]","[1, 5]",C,,1,1
+python,advanced,Python,"For numbers = [10, 30, 20, 30, 15], the second-largest distinct number is:",30,15,10,20,D,,1,1
+python,advanced,Python,"In the is_prime(n) function, why does the loop go only up to int(n ** 0.5) + 1?",A composite number must have a factor no greater than its square root,To make the loop run faster only by luck,To avoid division by zero,Because prime numbers are always below the square root,A,,1,1
+python,advanced,Python,What does MVT stand for in Django?,"Main, View, Template","Model, View, Template","Model, Variable, Type","Module, View, Test",B,,1,1
+python,advanced,Python,Django middleware is:,A database backend,A testing utility,A layer that can inspect or modify requests and responses,A template language,C,,1,1
+python,advanced,Python,Django REST Framework is used for:,Managing databases only,Creating desktop apps,Styling templates,Building Web APIs with Django,D,,1,1
+python,advanced,Python,A serializer in DRF:,Converts complex objects to JSON-compatible data and validates incoming data,Creates database tables only,Compiles Python code,Handles HTML templates,A,,1,1
+python,advanced,Python,Which is a recommended practice when building a secure Django app with MySQL?,Build SQL by concatenating user input,"Use environment variables for credentials, enable HTTPS, and use ORM or parameterized queries",Hard-code database passwords in settings.py,Disable authentication for speed,B,,1,1
+python,advanced,Python,"Given def f(x, lst=[]): lst.append(x); return lst — what does f(1); print(f(2)) output?",[2],Error,"[1, 2]",[1],C,,1,1
+python,advanced,Python,"What is the output of print([1, 2, 3] is [1, 2, 3])?",Error,True,None,False,D,,1,1
+python,advanced,Python,What is the output of print(10 > 5 > 3)?,True,False,Error,None,A,,1,1
+python,advanced,Python,x = 5; def f(): print(x); x = 3 — what happens on calling f()?,Prints 5,UnboundLocalError,Prints 3,NameError,B,,1,1
+python,advanced,Python,"What is the output of print(1 or 2, 0 or 3, 1 and 2)?",2 3 2,True True True,1 3 1,1 3 2,D,,1,1
+python,advanced,Python,"For class A: x = 1; a = A(); a.x = 2 — what does print(A.x, a.x) output?",2 1,1 1,1 2,2 2,C,,1,1
+python,advanced,Python,For class A: x = 1; b = A(); A.x = 5 — what does print(b.x) output?,AttributeError,5,1,None,B,,1,1
+python,advanced,Python,gen = (i * i for i in range(3)); print(list(gen)); print(list(gen)) — what is printed?,"[0, 1, 4] then an error","[0, 1, 4] twice","[0, 1, 4] then []",[] twice,C,,1,1
+python,advanced,Python,With def g(): yield 1; yield 2 and it = g(); next(it) — what does print(next(it)) output?,StopIteration,1,None,2,D,,1,1
+python,advanced,Python,"After a = [[1], [2]]; b = a.copy(); b[0].append(9), what is a?","[[1, 9], [2]]",Error,"[[1], [2]]","[[9], [2]]",A,,1,1
+python,advanced,Python,"After a = [[1], [2]]; b = copy.deepcopy(a); b[0].append(9), what is a?",Error,"[[1, 9], [2]]","[[9], [2]]","[[1], [2]]",D,,1,1
+python,advanced,Python,"What is the output of print(sorted(['b', 'A', 'c']))?","['c', 'b', 'A']","['A', 'b', 'c']","['b', 'A', 'c']","['A', 'c', 'b']",B,,1,1
+python,advanced,Python,"What is the output of print({1: 'a', 1.0: 'b', True: 'c'})?",{1: 'a'},TypeError,{1: 'c'},"{1: 'a', 1.0: 'b', True: 'c'}",C,,1,1
+python,advanced,Python,"What is the output of print(bool([]), bool([0]))?",False True,False False,True False,True True,A,,1,1
+python,advanced,Python,A decorator deco prints 'before' then calls the wrapped function that prints 'hi'. What is the output when the decorated function runs?,before then hi,hi then before,before only,hi only,A,,1,1
+python,advanced,Python,What does print(outer()()) output for def outer(): x = 1; def inner(): return x; return inner?,NameError,1,None,A function object,B,,1,1
+python,advanced,Python,What is the output of print(2 ** 3 ** 2)?,128,36,512,64,C,,1,1
+python,advanced,Python,What is the output of print(-7 // 2)?,-3,3,-3.5,-4,D,,1,1
+python,advanced,Python,What is the output of print(-7 % 3)?,1,-2,-1,2,D,,1,1
+python,advanced,Python,"What is the output of print(int('10', 2))?",ValueError,2,1,10,B,,1,1
+python,advanced,Python,What is the output of print(len(set('mississippi')))?,4,11,8,5,A,,1,1
+python,advanced,Python,What happens with s = 'hello'; s[0] = 'H'?,ValueError,No error and no change,TypeError,s becomes 'Hello',C,,1,1
+python,advanced,Python,"After x = [1, 2, 3]; y = x[:]; y.append(4), what is x?","[1, 2, 3]",Error,[4],"[1, 2, 3, 4]",A,,1,1
+python,advanced,Python,"For class D(B, C) where B and C both inherit from A, what is D's method resolution order?","D, A, B, C, object","D, B, C, A, object","D, C, B, A, object","D, B, A, C, object",B,,1,1
+python,advanced,Python,What is the main purpose of calling super().__init__() in a subclass?,To create a new instance,To check the object's type,To delete the parent class,To run the parent class initializer,D,,1,1
+python,advanced,Python,What is __repr__ intended to provide?,A user-friendly display string only,The object's length,An unambiguous representation mainly for developers,The object's hash value,C,,1,1
+python,advanced,Python,"If a class defines __eq__ but not __hash__, its instances become:",Unhashable,Hashable by default,Iterable,Immutable,A,,1,1
+python,advanced,Python,What does the @property decorator do?,Defines a class variable,Makes a class abstract,Creates a static method,Lets a method be accessed like an attribute,D,,1,1
+python,advanced,Python,What does yield from do in a generator?,Ends the generator,Delegates to another iterable or generator,Raises StopIteration,Returns a list,B,,1,1
+python,advanced,Python,What is the amortized time complexity of list.append()?,O(n),O(n^2),O(1),O(log n),C,,1,1
+python,advanced,Python,What is the average time complexity of x in a set?,O(n),O(n log n),O(1),O(log n),C,,1,1
+python,advanced,Python,What is the time complexity of x in a list?,O(n),O(log n),O(1),O(n^2),A,,1,1
+python,advanced,Python,Why do threads often not speed up CPU-bound work in standard CPython?,Python has no thread support,The Global Interpreter Lock,Interpreted languages cannot use threads,Threads need a GPU,B,,1,1
+python,advanced,Python,What does asyncio.run() do?,Starts a new process,Creates an OS thread,Imports the asyncio module,Runs a coroutine and manages the event loop,D,,1,1
+python,advanced,Python,What happens if you call an async function without await?,It returns None,It raises SyntaxError,It runs immediately and returns the result,It returns a coroutine object,D,,1,1
+python,advanced,Python,What is __slots__ used for?,Restricting instance attributes and reducing memory use,Scheduling time slots,Creating class variables,Defining abstract methods,A,,1,1
+python,advanced,Python,What does functools.lru_cache do?,Limits recursion depth,Locks a function for threads,Caches results of function calls,Logs function calls,C,,1,1
+python,advanced,Python,"What does print(*[1, 2, 3]) print?","*[1, 2, 3]",1 2 3,"[1, 2, 3]",SyntaxError,B,,1,1
+python,advanced,Python,"What does print(*'ab', sep='-') print?",a b,ab,"['a', 'b']",a-b,D,,1,1
+python,advanced,Python,For def f(): try: return 1 finally: print('x') — what happens when f() is called?,It raises an error,It prints x and returns None,It prints x and then returns 1,It returns 1 without printing,C,,1,1
+python,advanced,Python,What is the difference between __new__ and __init__?,They are identical,__new__ creates the instance; __init__ initializes it,__new__ is only for functions,__init__ creates the instance; __new__ initializes it,B,,1,1
+python,advanced,Python,"If an exception occurs inside a with block, what is guaranteed?",__exit__ is still called,The file is deleted,The program always terminates,Nothing is cleaned up,A,,1,1
+python,advanced,Python,What is a metaclass?,A class with no attributes,A class with only static methods,A class whose instances are classes,A subclass of a module,C,,1,1
+python,advanced,Python,What is monkey patching?,Encrypting source code,Modifying classes or modules at runtime,Copying a module,Fixing syntax errors automatically,B,,1,1
+python,advanced,Python,"What is the output of print([] == [], [] is [])?",False False,False True,True True,True False,D,,1,1
+python,advanced,Python,What does the typing module mainly provide?,Type hints that are not enforced at runtime,Keyboard input handling,Faster execution,Runtime type enforcement,A,,1,1
+python,advanced,Python,What is the output of print(sum([0.1] * 10) == 1.0)?,False,Error,True,1.0,A,,1,1
+python,advanced,Python,"What is the output of print('a' in 'abc', 'ac' in 'abc')?",True True,True False,False True,False False,B,,1,1
+python,advanced,Python,"For t = ([1], 2); t[0].append(5), what does print(t) output?","([5], 2)",TypeError,"([1], 2)","([1, 5], 2)",D,,1,1
+python,advanced,Python,"What is the output of print(divmod(17, 5))?",3.4,"(2, 3)","(3, 2)","[3, 2]",C,,1,1

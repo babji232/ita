@@ -1,0 +1,7 @@
+{% extends "exam/base.html" %}
+{% block title %}Question{% endblock %}
+{% block content %}
+<div class="card narrow wide"><h1>{% if obj %}Edit question #{{ obj.pk }}{% else %}Add question{% endif %}</h1>
+<form method="post" novalidate>{% csrf_token %}{% include "exam/_form.html" %}
+  <button class="btn" type="submit">Save</button> <a href="{% url 'admin_questions' %}">Cancel</a></form></div>
+{% endblock %}

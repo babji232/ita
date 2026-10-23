@@ -1,0 +1,183 @@
+{% extends "exam/base.html" %}
+{% block content %}
+<div class="landing-page">
+  <section class="landing-hero">
+    <div class="landing-copy">
+      <p class="landing-eyebrow"><span></span> ITA Associates · Train &amp; Place Programme</p>
+      <h1>Build your future in <em>data engineering.</em></h1>
+      <p class="landing-lead">Show what you can do in SQL and Python. Take our skills assessment and get your result as soon as you finish.</p>
+      <div class="landing-actions">
+        {% if user.is_authenticated and not user.is_staff %}
+          <a class="landing-btn" href="{% url 'student_dashboard' %}">Go to my dashboard <span aria-hidden="true">→</span></a>
+        {% elif user.is_authenticated %}
+          <a class="landing-btn" href="{% url 'admin_dashboard' %}">Open admin dashboard <span aria-hidden="true">→</span></a>
+        {% else %}
+          <a class="landing-btn" href="{% url 'register' %}">Get started <span aria-hidden="true">→</span></a>
+          <a class="landing-login" href="{% url 'student_login' %}">Student login</a>
+        {% endif %}
+      </div>
+      <p class="landing-reassurance"><span aria-hidden="true">✓</span> Randomised questions <span aria-hidden="true">✓</span> Instant results</p>
+    </div>
+
+    <div class="assessment-preview" aria-label="Assessment overview">
+      <div class="preview-top">
+        <div>
+          <span class="preview-label">YOUR ASSESSMENT</span>
+          <h2>Skills </h2>
+        </div>
+        <span class="preview-icon" aria-hidden="true">✳</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-icon sql-icon" aria-hidden="true">&lt;/&gt;</span>
+        <div class="skill-info"><b>SQL</b><span>Query &amp; manage data</span></div>
+        <span class="skill-count">30 <small>Q</small></span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-icon python-icon" aria-hidden="true">Py</span>
+        <div class="skill-info"><b>Python</b><span>Logic &amp; problem solving</span></div>
+        <span class="skill-count">30 <small>Q</small></span>
+      </div>
+      <div class="preview-divider"></div>
+      <div class="preview-bottom">
+        <span><b>{{ cfg.time_limit_minutes|default:"No" }}</b><small>{% if cfg.time_limit_minutes %}MINUTES{% else %}TIME LIMIT{% endif %}</small></span>
+        <span><b>{{ cfg.pass_percentage }}%</b><small>PASS MARK</small></span>
+        <span><b>{{ cfg.max_attempts }}</b><small>ATTEMPT{{ cfg.max_attempts|pluralize|upper }}</small></span>
+      </div>
+      <p class="preview-note">Easy, intermediate and advanced questions</p>
+    </div>
+    <div class="hero-decoration hero-decoration-one"></div>
+    <div class="hero-decoration hero-decoration-two"></div>
+  </section>
+
+  <section class="landing-stats" aria-label="Assessment facts">
+    <div class="landing-stat"><span class="stat-mark">01</span><div><b>60 questions</b><small>A focused skills assessment</small></div></div>
+    <div class="landing-stat"><span class="stat-mark">02</span><div><b>2 core skills</b><small>SQL + Python</small></div></div>
+    <div class="landing-stat"><span class="stat-mark">03</span><div><b>3 difficulty levels</b><small>Easy to advanced</small></div></div>
+    <div class="landing-stat"><span class="stat-mark">04</span><div><b>Instant results</b><small>See your score straight away</small></div></div>
+  </section>
+
+  <section class="landing-section">
+    <div class="section-heading">
+      <p class="landing-eyebrow"><span></span> SIMPLE FROM START TO FINISH</p>
+      <h2>Your next step, made clear.</h2>
+      <p>From setting up your account to reviewing your result, the process is straightforward.</p>
+    </div>
+    <div class="journey-grid">
+      <article class="journey-card"><span class="journey-number">01</span><div class="journey-icon" aria-hidden="true">↗</div><h3>Create your account</h3><p>Register with your name, email and phone number to get started.</p></article>
+      <article class="journey-card"><span class="journey-number">02</span><div class="journey-icon" aria-hidden="true">◎</div><h3>Verify and begin</h3><p>Sign in securely, then start your SQL and Python assessment.</p></article>
+      <article class="journey-card"><span class="journey-number">03</span><div class="journey-icon" aria-hidden="true">✓</div><h3>Get your result</h3><p>Submit your answers to see your score and pass or fail result.</p></article>
+    </div>
+  </section>
+
+  <section class="assessment-details">
+    <div class="section-heading">
+      <p class="landing-eyebrow"><span></span> KNOW WHAT TO EXPECT</p>
+      <h2>A balanced look at your core skills.</h2>
+      <p>The assessment is designed to check a range of data engineering foundations, from understanding concepts to choosing the right approach.</p>
+    </div>
+    <div class="detail-grid">
+      <article class="detail-card detail-sql">
+        <div class="detail-card-top"><span class="detail-icon" aria-hidden="true">&lt;/&gt;</span><span class="detail-tag">DATA QUERIES</span></div>
+        <h3>SQL</h3>
+        <p>Show how you work with relational data and think through common database tasks.</p>
+        <ul>
+          <li>Tables, records, databases and data types</li>
+          <li>Query structure and working with results</li>
+          <li>Relationships and core database concepts</li>
+        </ul>
+        <div class="level-chips"><span>Easy</span><span>Intermediate</span><span>Advanced</span></div>
+      </article>
+      <article class="detail-card detail-python">
+        <div class="detail-card-top"><span class="detail-icon" aria-hidden="true">Py</span><span class="detail-tag">PROGRAMMING LOGIC</span></div>
+        <h3>Python</h3>
+        <p>Demonstrate your understanding of Python fundamentals and structured problem-solving.</p>
+        <ul>
+          <li>Language basics and working with values</li>
+          <li>Reading logic and understanding code behaviour</li>
+          <li>Choosing a clear approach to a problem</li>
+        </ul>
+        <div class="level-chips"><span>Easy</span><span>Intermediate</span><span>Advanced</span></div>
+      </article>
+    </div>
+    <p class="detail-footnote">Questions are selected randomly for each attempt, and the answer choices are shuffled.</p>
+  </section>
+
+  <section class="format-section">
+    <div class="format-copy">
+      <p class="landing-eyebrow"><span></span> A CLEAR, FAIR FORMAT</p>
+      <h2>Focus on what you know. Take it one question at a time.</h2>
+      <p>Each attempt includes questions from both SQL and Python, with easy, intermediate and advanced levels in each skill. Read each question carefully, choose the best answer and submit when you are ready.</p>
+      <p>Your score is calculated from the marks you earn. There is no negative marking, so an incorrect answer does not subtract marks from your total.</p>
+    </div>
+    <div class="format-points">
+      <div><span class="format-check" aria-hidden="true">✓</span><p><b>Questions across both skills</b><small>SQL and Python are included in your assessment.</small></p></div>
+      <div><span class="format-check" aria-hidden="true">✓</span><p><b>Different difficulty levels</b><small>Questions range from easy to advanced.</small></p></div>
+      <div><span class="format-check" aria-hidden="true">✓</span><p><b>No negative marking</b><small>Only correct answers earn marks; wrong answers do not deduct marks.</small></p></div>
+      <div><span class="format-check" aria-hidden="true">✓</span><p><b>Result after submission</b><small>Review your total and skill-wise score when you finish.</small></p></div>
+    </div>
+  </section>
+
+  <section class="prep-section">
+    <div class="section-heading">
+      <p class="landing-eyebrow"><span></span> GET READY</p>
+      <h2>A few simple ways to prepare.</h2>
+      <p>You do not need a complicated setup. A little preparation can help you stay focused during the assessment.</p>
+    </div>
+    <div class="prep-grid">
+      <article class="prep-card"><span>01</span><h3>Refresh the fundamentals</h3><p>Review the SQL and Python concepts you have studied. Focus on understanding ideas rather than memorising answers.</p></article>
+      <article class="prep-card"><span>02</span><h3>Choose a quiet space</h3><p>Find a place where you can concentrate and allow enough uninterrupted time for your attempt.</p></article>
+      <article class="prep-card"><span>03</span><h3>Check your connection</h3><p>Use a reliable internet connection and a supported browser before you begin.</p></article>
+      <article class="prep-card"><span>04</span><h3>Read every question</h3><p>Take a moment to understand what is being asked, then compare the available answer choices.</p></article>
+    </div>
+  </section>
+
+  <section class="score-section">
+    <div class="score-card">
+      <span class="score-symbol" aria-hidden="true">%</span>
+      <div><p class="landing-eyebrow"><span></span> UNDERSTAND YOUR RESULT</p><h2>Clear scoring, shown straight away.</h2></div>
+    </div>
+    <div class="score-copy">
+      <p>After you submit, you can see your SQL score, Python score and overall result. The pass percentage is <b>{{ cfg.pass_percentage }}%</b> under the current assessment settings.</p>
+      {% if cfg.pass_mode == "each_skill" %}
+        <p>For a pass, you need to meet the pass percentage in <b>both SQL and Python</b>.</p>
+      {% else %}
+        <p>For a pass, you need to meet the pass percentage on your <b>overall score</b>.</p>
+      {% endif %}
+      <p>Your result reflects this assessment attempt. Passing does not guarantee placement; eligibility and programme terms still apply.</p>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="section-heading">
+      <p class="landing-eyebrow"><span></span> GOOD TO KNOW</p>
+      <h2>Frequently asked questions.</h2>
+      <p>Quick answers to help you feel prepared before you begin.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item"><summary>What skills does the assessment cover?</summary><p>The assessment covers SQL and Python, with questions across easy, intermediate and advanced difficulty levels.</p></details>
+      <details class="faq-item"><summary>How many attempts do I have?</summary><p>Your current assessment setting allows {{ cfg.max_attempts }} attempt{{ cfg.max_attempts|pluralize }}. Please review your answers before submitting.</p></details>
+      <details class="faq-item"><summary>How much time do I have?</summary><p>{% if cfg.time_limit_minutes %}You have {{ cfg.time_limit_minutes }} minutes after starting an attempt. The timer is based on your assessment start time.{% else %}There is no time limit configured for the assessment.{% endif %}</p></details>
+      <details class="faq-item"><summary>Is there a penalty for a wrong answer?</summary><p>No. There is no negative marking. Incorrect answers do not reduce the marks you earn for correct answers.</p></details>
+      <details class="faq-item"><summary>When will I see my result?</summary><p>Your result is available after you submit your attempt. It includes your overall score, skill-wise scores and pass or fail status.</p></details>
+      <details class="faq-item"><summary>What information do you collect?</summary><p>We use your name, email, phone number and assessment answers to operate the assessment and report results to ITA Associates. Access is limited to authorised administrators.</p></details>
+    </div>
+  </section>
+
+  <section class="landing-bottom">
+    <div>
+      <p class="landing-eyebrow"><span></span> READY WHEN YOU ARE</p>
+      <h2>Ready to show what you know?</h2>
+      <p>Create your student account to get started. You can review the assessment information above before you begin.</p>
+    </div>
+    {% if user.is_authenticated and not user.is_staff %}
+      <a class="landing-btn" href="{% url 'student_dashboard' %}">Go to dashboard <span aria-hidden="true">→</span></a>
+    {% elif user.is_authenticated %}
+      <a class="landing-btn" href="{% url 'admin_dashboard' %}">Open dashboard <span aria-hidden="true">→</span></a>
+    {% else %}
+      <a class="landing-btn" href="{% url 'register' %}">Register as a student <span aria-hidden="true">→</span></a>
+    {% endif %}
+  </section>
+
+  <p class="landing-privacy">Your name, email, phone number and assessment answers are used to run the assessment and report results to ITA Associates. Passing does not guarantee placement; programme terms still apply.</p>
+</div>
+{% endblock %}
